@@ -282,7 +282,7 @@ button:disabled{opacity:.5;cursor:not-allowed}
         </article>
         <article class="phase">
           <div class="tag"><span class="swatch" style="background:var(--w3)"></span><span class="lbl">Tuần 3</span><span class="dates">14 – 19/12</span></div>
-          <div class="body"><h3>Phần 3 · Vĩ mô → ngành &amp; Phần 4 · Outlook 2027</h3><p class="muted">Kết nối vĩ mô với ngành, viết triển vọng 2027 và hoàn thiện report.</p>
+          <div class="body"><h3>Phần 3 · Phân tích Vĩ mô → Ngành &amp; Phần 4 · Outlook 2027</h3><p class="muted">Phân tích driver vĩ mô của từng ngành, viết triển vọng 2027 và hoàn thiện report.</p>
             <div class="checkpoint"><b>Nộp report · 19/12, 23:59.</b> Một file duy nhất (Word/PDF hoặc Excel) gồm đủ 04 phần.</div></div>
         </article>
         <article class="phase">
@@ -366,12 +366,24 @@ button:disabled{opacity:.5;cursor:not-allowed}
     <section>
       <div class="section-head">
         <span class="eyebrow">Phần 3</span>
-        <h2>Ma trận Vĩ mô → Ngành</h2>
-        <p class="lede">Mỗi hàng là một yếu tố vĩ mô, mỗi cột là một ngành. Trong mỗi ô, nêu tác động (tích cực/tiêu cực) và kênh truyền dẫn.</p>
+        <h2>Phân tích Vĩ mô → Ngành</h2>
+        <p class="lede">Phân tích lần lượt từng ngành: yếu tố vĩ mô nào là driver chính và tác động lên ngành đó ra sao. Mỗi ngành đi theo 04 bước:</p>
       </div>
+      <ol class="clean">
+        <li><b>Driver vĩ mô chính:</b> 2–3 yếu tố vĩ mô ảnh hưởng mạnh nhất đến ngành.</li>
+        <li><b>Kênh truyền dẫn:</b> driver đó tác động đến doanh thu, chi phí, lợi nhuận hay định giá của doanh nghiệp trong ngành như thế nào.</li>
+        <li><b>Chiều và độ trễ tác động:</b> tích cực hay tiêu cực, ngắn hạn hay dài hạn.</li>
+        <li><b>KPI theo dõi:</b> 1–3 chỉ số để kiểm chứng nhận định.</li>
+      </ol>
       <div class="tbl"><table>
-        <thead><tr><th>Yếu tố vĩ mô gợi ý</th></tr></thead>
-        <tbody><tr><td>Tăng trưởng GDP · Lạm phát · Lãi suất &amp; tín dụng · Tỷ giá · Đầu tư công · FDI &amp; nhu cầu toàn cầu · Sức mua hộ gia đình</td></tr></tbody>
+        <thead><tr><th>Ngành</th><th>Driver gợi ý</th><th>KPI gợi ý</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Ngân hàng</td><td>Tăng trưởng tín dụng, lãi suất &amp; chính sách tiền tệ, chu kỳ kinh tế (chất lượng tài sản).</td><td>Tín dụng, NIM, NPL.</td></tr>
+          <tr><td class="k">Công nghiệp</td><td>FDI, xuất khẩu &amp; nhu cầu toàn cầu, đầu tư công.</td><td>PMI, IIP, tỷ lệ lấp đầy KCN.</td></tr>
+          <tr><td class="k">Bất động sản</td><td>Lãi suất &amp; tín dụng, pháp lý, thu nhập hộ gia đình, hạ tầng.</td><td>Presales, tỷ lệ hấp thụ, nguồn cung mới.</td></tr>
+          <tr><td class="k">Dịch vụ tài chính</td><td>Thanh khoản thị trường, lãi suất, dòng vốn ngoại.</td><td>Giá trị giao dịch, dư nợ margin, thị phần môi giới.</td></tr>
+          <tr><td class="k">Tiêu dùng &amp; Bán lẻ</td><td>Thu nhập &amp; sức mua, lạm phát, du lịch.</td><td>Tổng mức bán lẻ, SSSG, CPI.</td></tr>
+        </tbody>
       </table></div>
     </section>
 
