@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
 <title>SFR Capital Foundation</title>
+<meta name="description" content="Lộ trình, đề bài, phân team và nơi nộp bài cho Kỳ Foundation tháng 12/2026 của SFR Capital (NK28 EYRIE). Thuyết trình 26–27/12.">
+<meta name="theme-color" content="#12050A">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SFR Capital · Foundation Program 12/2026">
+<meta property="og:description" content="Vietnam Macroeconomy & Industry Landscape. Lộ trình, đề bài, phân team và nộp bài. Thuyết trình 26–27/12.">
+<meta property="og:image" content="https://sfr-capital-nk28.vercel.app/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://sfr-capital-nk28.vercel.app/">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -19,6 +31,7 @@
   --font-body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
   --font-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
   --radius:10px;
+  --hero-bg:#12050A; --hero-fg:#F6ECEC; --hero-muted:#C7A6AB; --hero-accent:#FF4C57; --hero-line:rgba(255,255,255,.14); --hero-card:rgba(255,255,255,.06);
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#150B0D; --surface:#20120F; --sunken:#1B0E10; --fg:#F3E9EA; --muted:#B49FA2; --line:#3B2629;
@@ -35,10 +48,9 @@
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:15px;line-height:1.6;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:15px;line-height:1.6;padding-block:0 48px}
+.wrap,.hero-in{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));box-sizing:content-box}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
-.wrap{max-width:1080px;margin:0 auto}
 h1,h2,h3,h4{font-family:var(--font-display);text-wrap:balance;margin:0;line-height:1.25}
 h2{font-size:1.45rem;font-weight:800;letter-spacing:-.01em}
 h3{font-size:1.1rem;font-weight:700}
@@ -50,23 +62,29 @@ a{color:var(--accent)}
 .muted{color:var(--muted)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
-/* masthead */
-.mast{padding-top:16px;display:grid;gap:18px}
-.banner{width:100%;aspect-ratio:1800/447;max-width:100%;border-radius:var(--radius);overflow:hidden;background:#1a0507;display:block}
+/* hero: brand band in the EYRIE colors, same in both themes */
+.hero{background:var(--hero-bg);color:var(--hero-fg);border-bottom:3px solid var(--hero-accent)}
+.hero-in{padding-block:0 28px;display:grid;gap:8px}
+.banner{width:100%;max-width:100%;aspect-ratio:1800/446;display:block;
+  -webkit-mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent),linear-gradient(to bottom,#000 70%,transparent);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent),linear-gradient(to bottom,#000 70%,transparent);mask-composite:intersect}
 .banner img{width:100%;height:100%;object-fit:cover;display:block}
-.mast-row{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px;align-items:end}
-.mast h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;letter-spacing:-.02em}
-.mast .sub{margin-top:6px;color:var(--muted);max-width:60ch}
-.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.fact{font-size:.8rem;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.hero .eyebrow{color:var(--hero-accent)}
+.mast-row{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:end}
+.hero h1{font-size:clamp(1.65rem,4.2vw,2.6rem);font-weight:800;letter-spacing:-.02em;margin-top:6px}
+.hero .sub{margin-top:8px;color:var(--hero-muted);max-width:60ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.fact{font-size:.8rem;padding:4px 11px;border:1px solid var(--hero-line);border-radius:999px;background:var(--hero-card);color:var(--hero-fg)}
 .fact b{font-weight:700}
-.next{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;display:grid;gap:4px}
-.next .when{font-family:var(--font-mono);font-size:1.6rem;font-weight:600;color:var(--accent);line-height:1.1}
+.eyrie{font-family:var(--font-mono);font-weight:600;letter-spacing:.32em;color:var(--hero-fg)}
+.next{background:var(--hero-card);border:1px solid var(--hero-line);border-radius:var(--radius);padding:16px 18px;display:grid;gap:4px}
+.next .when{font-family:var(--font-mono);font-size:1.75rem;font-weight:600;color:var(--hero-accent);line-height:1.1}
 .next .what{font-weight:600}
-@media (max-width:720px){.mast-row{grid-template-columns:1fr}}
+.next .muted{color:var(--hero-muted)}
+@media (max-width:720px){.mast-row{grid-template-columns:1fr;gap:18px}}
 
 /* tabs */
-.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);margin-top:20px;border-bottom:1px solid var(--line);
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);margin-top:0;border-bottom:1px solid var(--line);
   display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
 .tabs a{flex:0 0 auto;padding:12px 14px;text-decoration:none;color:var(--muted);font-weight:600;font-size:.92rem;border-bottom:3px solid transparent;margin-bottom:-1px}
 .tabs a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--accent)}
@@ -96,6 +114,20 @@ section{display:grid;gap:14px;min-width:0}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .legend i{width:14px;height:14px;border-radius:4px;display:inline-block}
 @media (max-width:560px){.day{min-height:54px;padding:4px}.day .ev{display:none}.day .n{font-size:.78rem}}
+
+.milestones{display:none;list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.milestones li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:10px;padding:9px 12px;border-bottom:1px solid var(--line);font-size:.88rem}
+.milestones li:last-child{border-bottom:0}
+.milestones .d{font-family:var(--font-mono);font-weight:600}
+.milestones li.dl .d{color:var(--accent)}
+.milestones li.done{color:var(--muted)}
+@media (max-width:560px){.milestones{display:block}}
+.finder{display:grid;gap:6px;max-width:420px}
+.finder-out{font-size:.9rem;min-height:1.4em}
+.finder-out b{color:var(--accent)}
+.team.dim{opacity:.35}
+.team.hit{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.team li.me span:first-child{color:var(--accent);font-weight:700}
 
 /* phases */
 .phases{display:grid;gap:12px}
@@ -173,12 +205,12 @@ button:disabled{opacity:.5;cursor:not-allowed}
 <body>
 
 
-<div class="wrap">
-  <header class="mast">
+<header class="hero">
+  <div class="hero-in">
     <div class="banner"><img src="banner.jpg" alt="SFR Capital: đại bàng đỏ đậu trên đỉnh núi nến"></div>
     <div class="mast-row">
       <div>
-        <div class="eyebrow">SFR Capital · Nhiệm kỳ 28 · Foundation Program</div>
+        <div class="eyebrow">SFR Capital · NK28 <span class="eyrie">EYRIE</span> · Foundation Program</div>
         <h1>Vietnam Macroeconomy &amp; Industry Landscape</h1>
         <p class="sub">Tháng 12/2026, cả 05 team cùng xây nền tảng về kinh tế vĩ mô Việt Nam và tổng quan 05 ngành. Chưa team nào nhận ngành phụ trách; việc phân ngành bắt đầu từ tháng 01/2027.</p>
         <div class="facts">
@@ -194,7 +226,10 @@ button:disabled{opacity:.5;cursor:not-allowed}
         <span class="muted mono" id="next-date" style="font-size:.82rem"></span>
       </div>
     </div>
-  </header>
+  </div>
+</header>
+
+<div class="wrap">
 
   <nav class="tabs" aria-label="Mục">
     <a href="#lo-trinh" data-view="lo-trinh">Lộ trình</a>
@@ -217,6 +252,7 @@ button:disabled{opacity:.5;cursor:not-allowed}
         <h2>Bốn tuần nội dung, thuyết trình cuối tuần 26–27/12</h2>
       </div>
       <div class="cal" id="cal"></div>
+      <ol class="milestones" id="milestones"></ol>
       <div class="legend">
         <span><i style="background:var(--w1)"></i>Tuần 1 · Vĩ mô</span>
         <span><i style="background:var(--w2)"></i>Tuần 2 · 05 ngành</span>
@@ -556,6 +592,12 @@ button:disabled{opacity:.5;cursor:not-allowed}
         <h2>05 team, 29 thành viên</h2>
         <p class="lede">Đây là danh sách phân team cho Kỳ Foundation sắp tới (01–27/12/2026). Trong kỳ này, team chưa gắn với ngành nào. Mỗi team có 01 Team Lead, 01 Vice Lead, các thành viên còn lại là Analyst.</p>
       </div>
+      <div class="finder">
+        <label for="find">Tìm tên của bạn
+          <input id="find" type="search" placeholder="Ví dụ: Minh Châu" autocomplete="off">
+        </label>
+        <span class="finder-out" id="find-out" aria-live="polite"></span>
+      </div>
       <div class="teams" id="teams"></div>
     </section>
     <section>
@@ -688,6 +730,28 @@ tickNext(); setInterval(tickNext,60000);
 $("teams").innerHTML=Object.entries(TEAMS).map(([t,ms])=>`
   <article class="team"><div class="team-head"><span class="team-letter">Team ${t}</span><span class="muted mono" style="font-size:.8rem">${ms.length} người</span></div>
   <ol>${ms.map(([n,r,k])=>`<li><span>${esc(n)}<br><span class="role${r!=="Analyst"?" lead":""}">${r}</span></span><span class="k5">${k}</span></li>`).join("")}</ol></article>`).join("");
+
+/* ---------- milestones (phone) ---------- */
+(function(){
+  const today=new Intl.DateTimeFormat("en-CA",{timeZone:TZ}).format(new Date());
+  $("milestones").innerHTML=Object.entries(EV).map(([d,ev])=>{const key="2026-12-"+String(d).padStart(2,"0");
+    return `<li class="${DL.has(+d)?"dl":""}${key<today?" done":""}"><span class="d">${String(d).padStart(2,"0")}/12</span><span>${ev}${DL.has(+d)&&+d!==31?" · 23:59":""}</span></li>`}).join("");
+})();
+
+/* ---------- team finder ---------- */
+const norm=x=>x.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").replace(/Đ/g,"D").toLowerCase().trim();
+$("find").addEventListener("input",e=>{
+  const q=norm(e.target.value); const cards=[...document.querySelectorAll("#teams .team")];
+  cards.forEach(c=>{c.classList.remove("dim","hit");c.querySelectorAll("li").forEach(l=>l.classList.remove("me"))});
+  if(q.length<2){$("find-out").textContent="";return}
+  const hits=[];
+  Object.entries(TEAMS).forEach(([t,ms],i)=>ms.forEach(([n,r])=>{if(norm(n).includes(q))hits.push({t,n,r,i,j:ms.findIndex(m=>m[0]===n)})}));
+  if(!hits.length){$("find-out").textContent="Không tìm thấy tên này trong danh sách.";return}
+  const teamsHit=new Set(hits.map(h=>h.i));
+  cards.forEach((c,i)=>c.classList.add(teamsHit.has(i)?"hit":"dim"));
+  hits.forEach(h=>cards[h.i].querySelectorAll("li")[h.j].classList.add("me"));
+  $("find-out").innerHTML=hits.slice(0,3).map(h=>`<b>${esc(h.n)}</b>: Team ${h.t} · ${h.r}`).join("<br>")+(hits.length>3?`<br>và ${hits.length-3} kết quả khác`:"");
+});
 
 /* ---------- submission folders ---------- */
 const FOLDERS={
