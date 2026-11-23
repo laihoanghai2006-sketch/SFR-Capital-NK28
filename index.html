@@ -216,6 +216,7 @@ button:disabled{opacity:.5;cursor:not-allowed}
         <div class="facts">
           <span class="fact"><b>01/12 – 27/12</b>/2026</span>
           <span class="fact"><b>05</b> team · <b>29</b> thành viên</span>
+          <span class="fact">Nộp report <b>19/12</b></span>
           <span class="fact">Thuyết trình <b>26–27/12</b></span>
         </div>
       </div>
@@ -249,105 +250,57 @@ button:disabled{opacity:.5;cursor:not-allowed}
     <section>
       <div class="section-head">
         <span class="eyebrow">Lịch tháng 12/2026</span>
-        <h2>Bốn tuần nội dung, thuyết trình cuối tuần 26–27/12</h2>
+        <h2>Nộp report 19/12, thuyết trình 26–27/12</h2>
       </div>
       <div class="cal" id="cal"></div>
       <ol class="milestones" id="milestones"></ol>
       <div class="legend">
-        <span><i style="background:var(--w1)"></i>Tuần 1 · Vĩ mô</span>
-        <span><i style="background:var(--w2)"></i>Tuần 2 · 05 ngành</span>
-        <span><i style="background:var(--w3)"></i>Tuần 3 · Vĩ mô → ngành</span>
-        <span><i style="background:var(--w4)"></i>Tuần 4 · Outlook &amp; hoàn thiện</span>
+        <span><i style="background:var(--w1)"></i>Tuần 1 · Phần 1</span>
+        <span><i style="background:var(--w2)"></i>Tuần 2 · Phần 2</span>
+        <span><i style="background:var(--w3)"></i>Tuần 3 · Phần 3–4</span>
+        <span><i style="background:var(--w4)"></i>Chuẩn bị thuyết trình</span>
         <span><i style="background:var(--w5)"></i>Thuyết trình</span>
         <span><i style="background:var(--w6)"></i>Tổng kết</span>
-        <span><span class="dot" style="width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block"></span>Hạn nộp (23:59)</span>
+        <span><span class="dot" style="width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block"></span>Mốc quan trọng</span>
       </div>
     </section>
 
     <section>
       <div class="section-head">
         <span class="eyebrow">Lộ trình triển khai</span>
-        <h2>Từng tuần làm gì, nộp gì</h2>
+        <h2>Gợi ý tiến độ theo tuần</h2>
+        <p class="lede">Chỉ có một lần nộp duy nhất (19/12). Tiến độ từng tuần dưới đây là gợi ý để team chia việc.</p>
       </div>
       <div class="phases">
         <article class="phase">
           <div class="tag"><span class="swatch" style="background:var(--w1)"></span><span class="lbl">Tuần 1</span><span class="dates">01 – 06/12</span></div>
-          <div class="body">
-            <h3>Vietnam Macroeconomic Overview</h3>
-            <p class="muted">Xây dựng bức tranh tổng quan kinh tế Việt Nam và bộ dữ liệu vĩ mô nền tảng. Các nhóm chỉ báo dưới đây là gợi ý, team chọn những chỉ báo phù hợp.</p>
-            <div class="tbl"><table>
-              <thead><tr><th>Nội dung</th><th>Gợi ý</th><th>Đầu ra</th></tr></thead>
-              <tbody>
-                <tr><td class="k">Kick-off (01/12)</td><td>Giới thiệu phạm vi, template, quy tắc nguồn dữ liệu, cách ghi đơn vị và kỳ báo cáo.</td><td>Thống nhất research template và đầu mối từng đầu việc.</td></tr>
-                <tr><td class="k">Tăng trưởng</td><td>GDP thực, cơ cấu GDP, tăng trưởng theo khu vực; sản xuất công nghiệp, PMI, bán lẻ và tiêu dùng.</td><td>Bộ chỉ báo tăng trưởng và nhận định xu hướng.</td></tr>
-                <tr><td class="k">Lạm phát &amp; tiền tệ</td><td>CPI, CPI cơ bản, lãi suất, tín dụng, cung tiền/thanh khoản, tỷ giá và định hướng điều hành.</td><td>Bảng dữ liệu và ghi chú về chính sách tiền tệ.</td></tr>
-                <tr><td class="k">Tài khóa &amp; đối ngoại</td><td>Thu-chi ngân sách, đầu tư công, xuất nhập khẩu, cán cân thương mại, FDI đăng ký/giải ngân.</td><td>Tổng hợp động lực và rủi ro từ tài khóa/đối ngoại.</td></tr>
-                <tr><td class="k">Thị trường vốn</td><td>Diễn biến thị trường cổ phiếu, thanh khoản, dòng vốn ngoại và các chỉ báo phù hợp.</td><td>Bộ chỉ báo thị trường vốn, ghi rõ nguồn và ngày dữ liệu.</td></tr>
-              </tbody>
-            </table></div>
-            <div class="checkpoint"><b>Nộp D1 · 06/12.</b> Vietnam Macroeconomic Dashboard.</div>
-          </div>
+          <div class="body"><h3>Phần 1 · Vĩ mô Việt Nam</h3><p class="muted">Kick-off ngày 01/12. Thu thập dữ liệu và xây dựng bức tranh vĩ mô.</p></div>
         </article>
-
         <article class="phase">
           <div class="tag"><span class="swatch" style="background:var(--w2)"></span><span class="lbl">Tuần 2</span><span class="dates">07 – 13/12</span></div>
-          <div class="body">
-            <h3>Five-Industry Landscape</h3>
-            <p class="muted">Hiểu cấu trúc và cách vận hành của cả 05 ngành bằng cùng một template, để không ngành nào bị nghiên cứu theo một cách riêng. Phạm vi và KPI từng ngành xem ở tab Đề bài.</p>
-            <ul class="clean">
-              <li>Mỗi team tổng hợp cả 05 ngành theo cùng một cấu trúc.</li>
-              <li>Khuyến khích teach-back cuối tuần để mọi người nắm được các ngành ngoài phần mình làm.</li>
-            </ul>
-            <div class="checkpoint"><b>Nộp D2 · 13/12.</b> Five Industry Overview Sheets.</div>
-          </div>
+          <div class="body"><h3>Phần 2 · Tổng quan 05 ngành</h3><p class="muted">Viết 05 ngành theo cùng một cấu trúc.</p></div>
         </article>
-
         <article class="phase">
           <div class="tag"><span class="swatch" style="background:var(--w3)"></span><span class="lbl">Tuần 3</span><span class="dates">14 – 19/12</span></div>
-          <div class="body">
-            <h3>Macro-to-Industry Analysis</h3>
-            <p class="muted">Chuyển từ mô tả chỉ báo sang giải thích tác động: vì sao cùng một thay đổi vĩ mô lại ảnh hưởng khác nhau đến từng ngành.</p>
-            <ul class="clean">
-              <li>Gợi ý xem xét tác động của các yếu tố vĩ mô chính lên cả 05 ngành.</li>
-              <li>Nên phân biệt chiều tích cực/tiêu cực, ngắn hạn/dài hạn thay vì kết luận chung chung.</li>
-            </ul>
-            <div class="checkpoint"><b>Nộp D3 · 19/12.</b> Macro-to-Industry Matrix.</div>
-          </div>
+          <div class="body"><h3>Phần 3 · Vĩ mô → ngành &amp; Phần 4 · Outlook 2027</h3><p class="muted">Kết nối vĩ mô với ngành, viết triển vọng 2027 và hoàn thiện report.</p>
+            <div class="checkpoint"><b>Nộp report · 19/12, 23:59.</b> Một file duy nhất (Word/PDF hoặc Excel) gồm đủ 04 phần.</div></div>
         </article>
-
         <article class="phase">
           <div class="tag"><span class="swatch" style="background:var(--w4)"></span><span class="lbl">Tuần 4</span><span class="dates">20 – 25/12</span></div>
-          <div class="body">
-            <h3>Vietnam Market Outlook 2027 &amp; hoàn thiện</h3>
-            <p class="muted">Tổng hợp thành quan điểm về bối cảnh 2027 trên cả 05 ngành. Không cần khuyến nghị mua/bán hay giá mục tiêu.</p>
-            <div class="tbl"><table>
-              <thead><tr><th>Ngày</th><th>Công việc</th><th>Kết quả</th></tr></thead>
-              <tbody>
-                <tr><td class="k mono">20 – 23/12</td><td>Xây dựng triển vọng 2027, gợi ý theo 03 kịch bản cơ sở, tích cực, tiêu cực.</td><td>Nộp D4 (23/12).</td></tr>
-                <tr><td class="k mono">24 – 25/12</td><td>Làm slide, phân công người trình bày, chuẩn bị Q&amp;A.</td><td>Nộp D5 (25/12).</td></tr>
-              </tbody>
-            </table></div>
-          </div>
+          <div class="body"><h3>Chuẩn bị thuyết trình</h3><p class="muted">Làm slide từ report, phân công người trình bày và chuẩn bị Q&amp;A. Không cần nộp slide trước.</p></div>
         </article>
-
         <article class="phase key">
           <div class="tag"><span class="swatch" style="background:var(--w5)"></span><span class="lbl">Thuyết trình</span><span class="dates">26 – 27/12</span></div>
-          <div class="body">
-            <h3>Final presentation, Q&amp;A và đánh giá cá nhân</h3>
+          <div class="body"><h3>Final presentation &amp; đánh giá cá nhân</h3>
             <ul class="clean">
-              <li>Mỗi team trình bày 15 phút và Q&amp;A 10 phút. Thành viên có thể được hỏi ngẫu nhiên về bất kỳ ngành nào.</li>
+              <li>Mỗi team trình bày 15 phút và Q&amp;A 10 phút.</li>
               <li>Bài kiểm tra cá nhân diễn ra trong 02 ngày này.</li>
               <li>Khung giờ của từng team sẽ được Ban Đầu tư Tài chính thông báo sau.</li>
-            </ul>
-          </div>
+            </ul></div>
         </article>
-
         <article class="phase">
           <div class="tag"><span class="swatch" style="background:var(--w6)"></span><span class="lbl">Tổng kết</span><span class="dates">28 – 31/12</span></div>
-          <div class="body">
-            <h3>Phản hồi kết quả và nguyện vọng ngành</h3>
-            <p class="muted">Phản hồi kết quả Foundation và thu thập nguyện vọng ngành của từng thành viên (hạn 31/12). Phân bổ ngành cho 05 team được công bố đầu tháng 01/2027.</p>
-          </div>
+          <div class="body"><h3>Phản hồi kết quả và nguyện vọng ngành</h3><p class="muted">Phản hồi kết quả Foundation và thu nguyện vọng ngành (hạn 31/12). Phân ngành công bố đầu tháng 01/2027.</p></div>
         </article>
       </div>
     </section>
@@ -371,142 +324,76 @@ button:disabled{opacity:.5;cursor:not-allowed}
   <!-- ============ ĐỀ BÀI ============ -->
   <div class="view" id="v-de-bai" hidden>
     <div class="notice">
-      <b>Cách đọc đề bài</b>
-      <p>Mỗi sản phẩm có một cấu trúc gợi ý. Các team chỉ cần làm theo đúng cấu trúc đó; chỉ báo, KPI và câu hỏi bên dưới là gợi ý để tham khảo, không cần làm đủ tất cả. Team tự chọn phạm vi và cách trình bày phù hợp.</p>
+      <b>Một report, một buổi thuyết trình</b>
+      <p>Mỗi team nộp <b>01 report</b> (Word/PDF hoặc Excel) trước <b>23:59 ngày 19/12</b>, sau đó thuyết trình vào <b>26–27/12</b>. Report làm theo cấu trúc 04 phần dưới đây; các chỉ báo, KPI, câu hỏi chỉ là gợi ý.</p>
     </div>
 
     <section>
       <div class="section-head">
-        <span class="eyebrow">Sản phẩm</span>
-        <h2>05 sản phẩm, mỗi sản phẩm nộp một lần</h2>
-        <p class="lede">Hạn nộp tính đến 23:59 giờ Việt Nam. Tải file vào thư mục Drive của team ở tab Nộp bài.</p>
-      </div>
-      <div class="tbl"><table>
-        <thead><tr><th>Mã</th><th>Sản phẩm</th><th>Cấu trúc gợi ý</th><th>Hạn nộp</th></tr></thead>
-        <tbody>
-          <tr><td class="k mono">D1</td><td class="k">Vietnam Macroeconomic Dashboard</td><td>File Excel tổng hợp chỉ báo vĩ mô theo 06 nhóm, kèm biểu đồ xu hướng.</td><td><span class="due">06/12</span></td></tr>
-          <tr><td class="k mono">D2</td><td class="k">Five Industry Overview Sheets</td><td>05 phần cho 05 ngành, cùng một cấu trúc 06 mục.</td><td><span class="due">13/12</span></td></tr>
-          <tr><td class="k mono">D3</td><td class="k">Macro-to-Industry Matrix</td><td>Ma trận: hàng là yếu tố vĩ mô, cột là 05 ngành, mỗi ô là tác động và kênh truyền dẫn.</td><td><span class="due">19/12</span></td></tr>
-          <tr><td class="k mono">D4</td><td class="k">Vietnam Industry Outlook 2027</td><td>Báo cáo ngắn: kịch bản 2027, cơ hội, rủi ro và chỉ báo nên theo dõi.</td><td><span class="due">23/12</span></td></tr>
-          <tr><td class="k mono">D5</td><td class="k">Final Presentation</td><td>Khoảng 15–20 slides; trình bày 15 phút, Q&amp;A 10 phút.</td><td><span class="due">25/12</span></td></tr>
-        </tbody>
-      </table></div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <span class="eyebrow">D1</span>
-        <h2>Vietnam Macroeconomic Dashboard</h2>
-        <p class="lede">Gợi ý dùng dữ liệu khoảng 03 năm gần nhất và ghi nguồn cho từng chỉ báo.</p>
+        <span class="eyebrow">Phần 1</span>
+        <h2>Vĩ mô Việt Nam</h2>
+        <p class="lede">Tổng hợp 06 nhóm chỉ báo, gợi ý dùng dữ liệu khoảng 03 năm gần nhất.</p>
       </div>
       <div class="tbl"><table>
         <thead><tr><th>Nhóm chỉ báo</th><th>Chỉ báo gợi ý</th></tr></thead>
         <tbody>
-          <tr><td class="k">Tăng trưởng</td><td>GDP thực, tăng trưởng theo khu vực, IIP, PMI, tổng mức bán lẻ.</td></tr>
+          <tr><td class="k">Tăng trưởng</td><td>GDP thực, IIP, PMI, tổng mức bán lẻ.</td></tr>
           <tr><td class="k">Lạm phát</td><td>CPI, CPI cơ bản.</td></tr>
-          <tr><td class="k">Tiền tệ &amp; tín dụng</td><td>Lãi suất điều hành, lãi suất huy động/cho vay, tăng trưởng tín dụng, USD/VND.</td></tr>
+          <tr><td class="k">Tiền tệ &amp; tín dụng</td><td>Lãi suất, tăng trưởng tín dụng, USD/VND.</td></tr>
           <tr><td class="k">Tài khóa &amp; đầu tư công</td><td>Thu, chi ngân sách; giải ngân đầu tư công.</td></tr>
-          <tr><td class="k">Đối ngoại &amp; FDI</td><td>Xuất nhập khẩu, cán cân thương mại, FDI đăng ký/giải ngân.</td></tr>
-          <tr><td class="k">Thị trường vốn</td><td>VN-Index, giá trị giao dịch, dòng vốn ngoại.</td></tr>
+          <tr><td class="k">Đối ngoại &amp; FDI</td><td>Xuất nhập khẩu, cán cân thương mại, FDI.</td></tr>
+          <tr><td class="k">Thị trường vốn</td><td>VN-Index, thanh khoản, dòng vốn ngoại.</td></tr>
         </tbody>
       </table></div>
     </section>
 
     <section>
       <div class="section-head">
-        <span class="eyebrow">D2</span>
-        <h2>Five Industry Overview Sheets</h2>
-        <p class="lede">Mỗi team viết cả 05 ngành theo cùng một cấu trúc 06 mục dưới đây.</p>
+        <span class="eyebrow">Phần 2</span>
+        <h2>Tổng quan 05 ngành</h2>
+        <p class="lede">Ngân hàng, Công nghiệp, Bất động sản, Dịch vụ tài chính, Tiêu dùng &amp; Bán lẻ. Mỗi ngành viết theo cùng 06 mục:</p>
       </div>
-      <div class="two">
-        <div class="panel">
-          <h4>Cấu trúc cho mỗi ngành</h4>
-          <ol class="clean">
-            <li>Định nghĩa &amp; phân khúc</li>
-            <li>Chuỗi giá trị &amp; mô hình kinh doanh</li>
-            <li>Cấu trúc thị trường &amp; doanh nghiệp tiêu biểu</li>
-            <li>Động lực tăng trưởng &amp; rủi ro</li>
-            <li>Chỉ số vận hành quan trọng (KPI)</li>
-            <li>Doanh nghiệp niêm yết tham chiếu &amp; phương pháp định giá thường dùng</li>
-          </ol>
-        </div>
-        <div class="panel">
-          <h4>Mẹo làm việc nhóm</h4>
-          <p>Mỗi tuần nên có một buổi teach-back ngắn: người phụ trách phần nào trình bày phần đó, các bạn khác đặt câu hỏi. Như vậy cả team đều nắm được 05 ngành, không phải mỗi người chỉ biết một phần.</p>
-        </div>
+      <ol class="clean">
+        <li>Định nghĩa &amp; phân khúc</li>
+        <li>Chuỗi giá trị &amp; mô hình kinh doanh</li>
+        <li>Cấu trúc thị trường &amp; doanh nghiệp tiêu biểu</li>
+        <li>Động lực tăng trưởng &amp; rủi ro</li>
+        <li>Chỉ số vận hành quan trọng (KPI)</li>
+        <li>Doanh nghiệp niêm yết tham chiếu &amp; phương pháp định giá thường dùng</li>
+      </ol>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Phần 3</span>
+        <h2>Ma trận Vĩ mô → Ngành</h2>
+        <p class="lede">Mỗi hàng là một yếu tố vĩ mô, mỗi cột là một ngành. Trong mỗi ô, nêu tác động (tích cực/tiêu cực) và kênh truyền dẫn.</p>
       </div>
       <div class="tbl"><table>
-        <thead><tr><th>Ngành</th><th>Gợi ý phạm vi</th><th>KPI gợi ý</th></tr></thead>
-        <tbody>
-          <tr><td class="k">Ngân hàng</td><td>Huy động, cho vay, chất lượng tài sản, thu nhập lãi và ngoài lãi.</td><td>Tín dụng, CASA, NIM, NPL, ROE; P/B.</td></tr>
-          <tr><td class="k">Công nghiệp</td><td>Sản xuất, khu công nghiệp, logistics, vận tải.</td><td>PMI, IIP, FDI, tỷ lệ lấp đầy, backlog; EV/EBITDA.</td></tr>
-          <tr><td class="k">Bất động sản</td><td>Nhà ở, khu công nghiệp, thương mại; pháp lý, nguồn cung, hấp thụ.</td><td>Presales, tỷ lệ hấp thụ, đòn bẩy; P/B, RNAV.</td></tr>
-          <tr><td class="k">Dịch vụ tài chính</td><td>Chứng khoán, quản lý tài sản, bảo hiểm.</td><td>Thanh khoản thị trường, margin, thị phần môi giới; P/B.</td></tr>
-          <tr><td class="k">Tiêu dùng &amp; Bán lẻ</td><td>FMCG, F&amp;B, bán lẻ hiện đại; sức mua, thị phần.</td><td>SSSG, biên gộp, số cửa hàng; P/E.</td></tr>
-        </tbody>
+        <thead><tr><th>Yếu tố vĩ mô gợi ý</th></tr></thead>
+        <tbody><tr><td>Tăng trưởng GDP · Lạm phát · Lãi suất &amp; tín dụng · Tỷ giá · Đầu tư công · FDI &amp; nhu cầu toàn cầu · Sức mua hộ gia đình</td></tr></tbody>
       </table></div>
     </section>
 
     <section>
       <div class="section-head">
-        <span class="eyebrow">D3</span>
-        <h2>Macro-to-Industry Matrix</h2>
-        <p class="lede">Cấu trúc: mỗi hàng là một yếu tố vĩ mô, mỗi cột là một ngành. Trong mỗi ô, nêu tác động (tích cực/tiêu cực) và kênh truyền dẫn. Các câu hỏi dưới đây là gợi ý để bắt đầu.</p>
+        <span class="eyebrow">Phần 4</span>
+        <h2>Outlook 2027</h2>
       </div>
-      <div class="tbl"><table>
-        <thead><tr><th>Yếu tố vĩ mô</th><th>Câu hỏi gợi ý</th></tr></thead>
-        <tbody>
-          <tr><td class="k">Tăng trưởng GDP</td><td>Tăng trưởng ảnh hưởng đến tín dụng, mua nhà, tiêu dùng, sản xuất qua kênh nào?</td></tr>
-          <tr><td class="k">Lạm phát</td><td>Chi phí đầu vào, sức mua và biên lợi nhuận thay đổi ra sao?</td></tr>
-          <tr><td class="k">Lãi suất / tín dụng</td><td>Ngành nào nhạy cảm nhất với chi phí vốn?</td></tr>
-          <tr><td class="k">Tỷ giá</td><td>Doanh nghiệp xuất khẩu, nhập khẩu, có nợ ngoại tệ bị ảnh hưởng thế nào?</td></tr>
-          <tr><td class="k">Đầu tư công</td><td>Ngành nào hưởng lợi trực tiếp hoặc gián tiếp?</td></tr>
-          <tr><td class="k">FDI / nhu cầu toàn cầu</td><td>Dòng vốn và đơn hàng quốc tế lan sang ngành nào?</td></tr>
-          <tr><td class="k">Sức mua hộ gia đình</td><td>Tiêu dùng thiết yếu và không thiết yếu phản ứng khác nhau thế nào?</td></tr>
-        </tbody>
-      </table></div>
+      <ol class="clean">
+        <li>Kịch bản vĩ mô 2027 (gợi ý: cơ sở, tích cực, tiêu cực)</li>
+        <li>Cơ hội và rủi ro của 05 ngành</li>
+        <li>Các chỉ báo nên theo dõi</li>
+      </ol>
+      <p class="muted" style="font-size:.88rem">Không cần khuyến nghị mua/bán hay giá mục tiêu.</p>
     </section>
 
     <section>
       <div class="section-head">
-        <span class="eyebrow">D4 &amp; D5</span>
-        <h2>Outlook 2027 và slide thuyết trình</h2>
+        <span class="eyebrow">Thuyết trình 26–27/12</span>
+        <h2>Slide trình bày</h2>
+        <p class="lede">15 phút trình bày, 10 phút Q&amp;A. Slide tóm tắt lại 04 phần của report; không cần nộp slide trước.</p>
       </div>
-      <div class="two">
-        <div class="panel">
-          <h4>Cấu trúc gợi ý cho Outlook 2027</h4>
-          <ol class="clean">
-            <li>Kịch bản vĩ mô 2027 (gợi ý: cơ sở, tích cực, tiêu cực)</li>
-            <li>Cơ hội và rủi ro của 05 ngành</li>
-            <li>Các chỉ báo nên theo dõi</li>
-          </ol>
-          <p class="muted" style="font-size:.85rem">Không cần khuyến nghị mua/bán hay giá mục tiêu.</p>
-        </div>
-        <div class="panel">
-          <h4>Cấu trúc gợi ý cho slide (15–20 slides)</h4>
-          <ol class="clean">
-            <li>Executive summary &amp; bức tranh vĩ mô</li>
-            <li>Kịch bản 2027</li>
-            <li>05 ngành, mỗi ngành khoảng 01 slide</li>
-            <li>Ma trận tác động vĩ mô–ngành</li>
-            <li>Outlook 2027 &amp; kết luận</li>
-            <li>Nguồn tham khảo</li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <span class="eyebrow">Thói quen nên có</span>
-        <h2>Một vài khuyến nghị khi làm bài</h2>
-      </div>
-      <ul class="clean">
-        <li>Ghi nguồn và kỳ dữ liệu cho các số liệu quan trọng.</li>
-        <li>Đặt tiêu đề biểu đồ theo thông điệp muốn nói, kèm đơn vị.</li>
-        <li>Mỗi nhận định nên đi kèm dữ liệu hoặc giải thích cơ chế.</li>
-        <li>Ưu tiên nguồn chính thức (Tổng cục Thống kê, Ngân hàng Nhà nước, sở giao dịch, BCTC doanh nghiệp); báo cáo của công ty chứng khoán dùng để tham khảo thêm.</li>
-      </ul>
     </section>
 
     <section>
@@ -516,28 +403,19 @@ button:disabled{opacity:.5;cursor:not-allowed}
       </div>
       <div class="two">
         <div class="tbl"><table>
-          <thead><tr><th>Sản phẩm nhóm</th><th>Trọng số</th></tr></thead>
+          <thead><tr><th>Report &amp; thuyết trình</th><th>Trọng số</th></tr></thead>
           <tbody>
-            <tr><td><b>Hiểu biết vĩ mô</b></td><td class="k mono">20%</td></tr>
-            <tr><td><b>Kiến thức 05 ngành</b></td><td class="k mono">25%</td></tr>
-            <tr><td><b>Liên kết vĩ mô–ngành</b></td><td class="k mono">25%</td></tr>
-            <tr><td><b>Chất lượng dữ liệu &amp; nghiên cứu</b></td><td class="k mono">15%</td></tr>
-            <tr><td><b>Trình bày &amp; Q&amp;A</b></td><td class="k mono">15%</td></tr>
+            <tr><td>Hiểu biết vĩ mô</td><td class="k mono">20%</td></tr>
+            <tr><td>Kiến thức 05 ngành</td><td class="k mono">25%</td></tr>
+            <tr><td>Liên kết vĩ mô–ngành</td><td class="k mono">25%</td></tr>
+            <tr><td>Chất lượng dữ liệu &amp; nghiên cứu</td><td class="k mono">15%</td></tr>
+            <tr><td>Trình bày &amp; Q&amp;A</td><td class="k mono">15%</td></tr>
           </tbody>
         </table></div>
         <div class="panel">
           <h4>Đánh giá cá nhân (26–27/12)</h4>
-          <p>Dự kiến 20–25 câu trắc nghiệm và 03 câu hỏi ngắn về vĩ mô Việt Nam, 05 ngành và liên kết vĩ mô–ngành.</p>
-          <p class="muted" style="font-size:.85rem">Trong Q&amp;A, thành viên có thể được hỏi về bất kỳ ngành nào.</p>
+          <p>Dự kiến 20–25 câu trắc nghiệm và 03 câu hỏi ngắn về nội dung 04 phần.</p>
         </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <span class="eyebrow">Giai đoạn tiếp theo</span>
-        <h2>Từ tháng 01/2027: phân ngành và nghiên cứu chuyên sâu</h2>
-        <p class="lede">Đầu tháng 01/2027, SFR Capital công bố phân bổ 01 ngành cho mỗi team, dựa trên nguyện vọng thành viên, kết quả đánh giá cá nhân, chất lượng sản phẩm của team và sự cân bằng giữa các team.</p>
       </div>
     </section>
   </div>
@@ -580,8 +458,8 @@ button:disabled{opacity:.5;cursor:not-allowed}
     <section>
       <div class="section-head">
         <span class="eyebrow">Nộp bài</span>
-        <h2>Tải sản phẩm lên thư mục Drive của team</h2>
-        <p class="lede">Mỗi team có một thư mục Google Drive riêng. Vice Lead (hoặc người được team phân công) tải file vào đúng thư mục của team mình trước 23:59 ngày hạn. Ban Đầu tư Tài chính tính giờ nộp theo thời điểm file được tải lên Drive.</p>
+        <h2>Tải report lên thư mục Drive của team</h2>
+        <p class="lede">Mỗi team có một thư mục Google Drive riêng. Vice Lead (hoặc người được team phân công) tải report vào đúng thư mục của team mình trước <b>23:59 ngày 19/12</b>. Ban Đầu tư Tài chính tính giờ nộp theo thời điểm file được tải lên Drive.</p>
       </div>
       <div class="folders" id="folders"></div>
     </section>
@@ -589,11 +467,11 @@ button:disabled{opacity:.5;cursor:not-allowed}
     <section>
       <div class="section-head">
         <span class="eyebrow">Quy tắc đặt tên file</span>
-        <h2>Team_Mã</h2>
-        <p class="lede">Đặt tên đúng quy tắc để BTC đối chiếu nhanh. Định dạng gốc (Excel, Word/PDF, PowerPoint/PDF) đều được nhận.</p>
+        <h2>TeamA_Report</h2>
+        <p class="lede">Thay A bằng chữ cái của team. Nhận file Word, PDF hoặc Excel.</p>
       </div>
       <div class="tbl"><table>
-        <thead><tr><th>Hạng mục</th><th>Hạn nộp</th><th>Tên file mẫu</th></tr></thead>
+        <thead><tr><th>Sản phẩm</th><th>Hạn nộp</th><th>Tên file mẫu</th></tr></thead>
         <tbody id="naming"></tbody>
       </table></div>
     </section>
@@ -605,9 +483,9 @@ button:disabled{opacity:.5;cursor:not-allowed}
       </div>
       <ul class="clean">
         <li>Chỉ tải vào thư mục của team mình; không mở, sửa hay xóa file trong thư mục của team khác.</li>
-        <li>Muốn cập nhật file đã nộp thì tải file mới thêm <span class="mono">_v2</span>, không cần xóa file cũ.</li>
-        <li>File tải lên sau 23:59 ngày hạn được ghi nhận là nộp trễ.</li>
-        <li>Nếu nộp bằng Google Sheets/Docs/Slides, tạo file ngay trong thư mục team và đặt tên theo quy tắc trên.</li>
+        <li>Nếu report có cả Word và Excel đi kèm, đặt tên <span class="mono">TeamA_Report</span> và <span class="mono">TeamA_Data</span>.</li>
+        <li>File tải lên sau 23:59 ngày 19/12 được ghi nhận là nộp trễ.</li>
+        <li>Nếu làm bằng Google Docs/Sheets, tạo file ngay trong thư mục team và đặt tên theo quy tắc trên.</li>
       </ul>
     </section>
   </div>
@@ -626,11 +504,7 @@ const TEAMS={
 };
 const due=d=>new Date(d+"T23:59:59+07:00");
 const SLOTS=[
- {id:"d1",code:"D1",name:"Macro Dashboard",due:due("2026-12-06")},
- {id:"d2",code:"D2",name:"Industry Overview Sheets",due:due("2026-12-13")},
- {id:"d3",code:"D3",name:"Macro-to-Industry Matrix",due:due("2026-12-19")},
- {id:"d4",code:"D4",name:"Industry Outlook 2027",due:due("2026-12-23")},
- {id:"d5",code:"D5",name:"Final Presentation (slide)",due:due("2026-12-25")}
+ {id:"rp",code:"Report",name:"Report 04 phần (Word/PDF hoặc Excel)",due:due("2026-12-19")}
 ];
 const SLOT=Object.fromEntries(SLOTS.map(s=>[s.id,s]));
 const fmtDT=new Intl.DateTimeFormat("vi-VN",{timeZone:TZ,day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false});
@@ -652,8 +526,8 @@ addEventListener("hashchange",route); route();
 
 /* ---------- calendar ---------- */
 const PH=d=>d<=6?"p1":d<=13?"p2":d<=19?"p3":d<=25?"p4":d<=27?"p5":"p6";
-const EV={1:"Kick-off",6:"Nộp D1",13:"Nộp D2",19:"Nộp D3",23:"Nộp D4",25:"Nộp D5 · Slide",26:"Thuyết trình",27:"Thuyết trình · Kiểm tra cá nhân",31:"Nguyện vọng ngành"};
-const DL=new Set([6,13,19,23,25,31]);
+const EV={1:"Kick-off",19:"Nộp report",26:"Thuyết trình",27:"Thuyết trình · Kiểm tra cá nhân",31:"Nguyện vọng ngành"};
+const DL=new Set([19,26,27,31]);
 (function(){
   const cal=$("cal"); let h=["T2","T3","T4","T5","T6","T7","CN"].map(d=>`<div class="dow">${d}</div>`).join("");
   h+=`<div class="day blank"></div>`; // 01/12/2026 là thứ Ba
@@ -669,7 +543,7 @@ const DL=new Set([6,13,19,23,25,31]);
 function tickNext(){
   const now=new Date();
   const events=[{t:new Date("2026-12-01T00:00:00+07:00"),what:"Kick-off Foundation"}]
-   .concat([...new Map(SLOTS.map(s=>[s.due.getTime(),s])).values()].map(s=>({t:s.due,what:"Nộp "+s.code+" · "+s.name})))
+   .concat([...new Map(SLOTS.map(s=>[s.due.getTime(),s])).values()].map(s=>({t:s.due,what:"Nộp report"})))
    .concat([{t:new Date("2026-12-26T08:00:00+07:00"),what:"Final presentation"}]);
   const nx=events.find(e=>e.t>now);
   if(!nx){$("next-when").textContent="Đã kết thúc";$("next-what").textContent="Foundation tháng 12 đã hoàn tất";$("next-date").textContent="";return}
@@ -689,7 +563,7 @@ $("teams").innerHTML=Object.entries(TEAMS).map(([t,ms])=>`
 (function(){
   const today=new Intl.DateTimeFormat("en-CA",{timeZone:TZ}).format(new Date());
   $("milestones").innerHTML=Object.entries(EV).map(([d,ev])=>{const key="2026-12-"+String(d).padStart(2,"0");
-    return `<li class="${DL.has(+d)?"dl":""}${key<today?" done":""}"><span class="d">${String(d).padStart(2,"0")}/12</span><span>${ev}${DL.has(+d)&&+d!==31?" · 23:59":""}</span></li>`}).join("");
+    return `<li class="${DL.has(+d)?"dl":""}${key<today?" done":""}"><span class="d">${String(d).padStart(2,"0")}/12</span><span>${ev}${+d===19?" · 23:59":""}</span></li>`}).join("");
 })();
 
 /* ---------- team finder ---------- */
@@ -716,9 +590,9 @@ const FOLDERS={
  E:"https://drive.google.com/drive/folders/1h55eKXU33hsrDAic0vbBVntNQA4JQH_F"
 };
 $("folders").innerHTML=Object.keys(TEAMS).map(t=>`<a class="folder" href="${FOLDERS[t]}" target="_blank" rel="noopener"><span class="team-letter">Team ${t}</span><span class="muted">Mở thư mục nộp bài ↗</span></a>`).join("");
-const FN={d1:"D1_Dashboard",d2:"D2_Industry",d3:"D3_Matrix",d4:"D4_Outlook",d5:"D5_Slide"};
+const FN={rp:"Report"};
 const now=new Date();
-$("naming").innerHTML=SLOTS.map(s=>`<tr${now>s.due?' class="past"':""}><td class="k">${s.code} · ${esc(s.name)}</td><td class="mono">${dm(s.due)} · 23:59</td><td class="mono">TeamA_${FN[s.id]}</td></tr>`).join("");
+$("naming").innerHTML=SLOTS.map(s=>`<tr${now>s.due?' class="past"':""}><td class="k">${esc(s.name)}</td><td class="mono">${dm(s.due)} · 23:59</td><td class="mono">TeamA_${FN[s.id]}</td></tr>`).join("");
 })();
 </script>
 
