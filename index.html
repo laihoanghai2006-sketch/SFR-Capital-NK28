@@ -129,6 +129,19 @@ section{display:grid;gap:14px;min-width:0}
 .team.hit{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
 .team li.me span:first-child{color:var(--accent);font-weight:700}
 
+.part{display:grid;gap:16px;border-top:1px solid var(--line);padding-top:24px}
+.part-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.part-no{font-family:var(--font-mono);font-weight:600;color:var(--accent);font-size:.9rem}
+.part-meta{font-size:.8rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:2px 10px}
+.prose{display:grid;gap:12px;max-width:72ch}
+.prose h4{margin-top:6px}
+.prose p{color:var(--fg)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:st}
+.steps li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;counter-increment:st}
+.steps li::before{content:counter(st);font-family:var(--font-mono);font-weight:600;color:var(--accent-ink);background:var(--accent);border-radius:6px;width:24px;height:24px;display:grid;place-items:center;font-size:.8rem;margin-top:2px}
+.steps b{display:block}
+.example{background:var(--sunken);border-radius:8px;padding:12px 14px;font-size:.92rem}
+.example b{color:var(--accent)}
 /* phases */
 .phases{display:grid;gap:12px}
 .phase{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px;padding:18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
@@ -325,108 +338,134 @@ button:disabled{opacity:.5;cursor:not-allowed}
   <div class="view" id="v-de-bai" hidden>
     <div class="notice">
       <b>Một report, một buổi thuyết trình</b>
-      <p>Mỗi team nộp <b>01 report</b> (Word/PDF hoặc Excel) trước <b>23:59 ngày 19/12</b>, sau đó thuyết trình vào <b>26–27/12</b>. Report làm theo cấu trúc 04 phần dưới đây; các chỉ báo, KPI, câu hỏi chỉ là gợi ý.</p>
+      <p>Mỗi team nộp <b>01 report</b> (Word/PDF hoặc Excel) trước <b>23:59 ngày 19/12</b>, sau đó thuyết trình vào <b>26–27/12</b>. Report đi theo cấu trúc 04 phần dưới đây. Phần mô tả, chỉ báo và độ dài là gợi ý để các bạn định hướng; team tự quyết cách triển khai, miễn bám đúng cấu trúc.</p>
     </div>
 
     <section>
       <div class="section-head">
-        <span class="eyebrow">Phần 1</span>
-        <h2>Vĩ mô Việt Nam</h2>
-        <p class="lede">Tổng hợp 06 nhóm chỉ báo, gợi ý dùng dữ liệu khoảng 03 năm gần nhất.</p>
+        <span class="eyebrow">Tổng quan report</span>
+        <h2>Report trả lời một câu hỏi: kinh tế Việt Nam đang ở đâu, và điều đó có ý nghĩa gì với 05 ngành trong năm 2027?</h2>
+      </div>
+      <div class="prose">
+        <p>Bốn phần của report nối tiếp nhau. Phần 1 dựng bức tranh vĩ mô. Phần 2 giải thích từng ngành vận hành và kiếm tiền như thế nào. Phần 3 nối hai phần trước bằng cách chỉ ra yếu tố vĩ mô nào thực sự chi phối từng ngành. Phần 4 dùng toàn bộ kết quả đó để đưa ra góc nhìn cho năm 2027.</p>
+        <p>Report tốt không phải là report dài hay nhiều biểu đồ, mà là report mà mỗi con số đều dẫn tới một nhận định. Sau mỗi bảng hoặc biểu đồ, hãy viết 2–3 câu trả lời câu hỏi "vậy thì sao?". Tổng độ dài gợi ý khoảng 20–30 trang Word, hoặc một file Excel mỗi phần một sheet, có phần nhận định viết ngay trong sheet.</p>
+      </div>
+    </section>
+
+    <section class="part">
+      <div class="part-head"><span class="part-no">PHẦN 1</span><h2>Vĩ mô Việt Nam</h2><span class="part-meta">Gợi ý: 4–6 trang</span></div>
+      <div class="prose">
+        <p><b>Mục đích.</b> Hiểu nền kinh tế Việt Nam đang ở giai đoạn nào của chu kỳ: tăng trưởng đang tăng tốc hay chậm lại, động lực chính đến từ tiêu dùng, đầu tư hay xuất khẩu, và chính sách đang hỗ trợ hay thắt chặt. Đây là nền móng cho Phần 3 và Phần 4.</p>
+        <h4>Nên trình bày</h4>
+        <ul class="steps">
+          <li><span><b>Bức tranh chung.</b> Mở đầu bằng một đoạn tóm tắt: tăng trưởng GDP 03 năm gần nhất, động lực tăng trưởng và vị trí hiện tại trong chu kỳ.</span></li>
+          <li><span><b>Diễn biến 06 nhóm chỉ báo.</b> Với mỗi nhóm, trình bày số liệu, giải thích vì sao chỉ báo thay đổi như vậy và nhận định xu hướng sắp tới. Tránh chỉ liệt kê số.</span></li>
+          <li><span><b>Chính sách điều hành.</b> Định hướng chính sách tiền tệ của Ngân hàng Nhà nước (lãi suất, tín dụng, tỷ giá) và chính sách tài khóa (đầu tư công, thuế), cùng ý nghĩa của chúng với nền kinh tế.</span></li>
+          <li><span><b>Kết luận phần.</b> 3–5 điểm chính về vĩ mô mà team sẽ mang sang Phần 3 và Phần 4.</span></li>
+        </ul>
       </div>
       <div class="tbl"><table>
-        <thead><tr><th>Nhóm chỉ báo</th><th>Chỉ báo gợi ý</th></tr></thead>
+        <thead><tr><th>Nhóm chỉ báo</th><th>Chỉ báo gợi ý</th><th>Câu hỏi nên trả lời</th></tr></thead>
         <tbody>
-          <tr><td class="k">Tăng trưởng</td><td>GDP thực, IIP, PMI, tổng mức bán lẻ.</td></tr>
-          <tr><td class="k">Lạm phát</td><td>CPI, CPI cơ bản.</td></tr>
-          <tr><td class="k">Tiền tệ &amp; tín dụng</td><td>Lãi suất, tăng trưởng tín dụng, USD/VND.</td></tr>
-          <tr><td class="k">Tài khóa &amp; đầu tư công</td><td>Thu, chi ngân sách; giải ngân đầu tư công.</td></tr>
-          <tr><td class="k">Đối ngoại &amp; FDI</td><td>Xuất nhập khẩu, cán cân thương mại, FDI.</td></tr>
-          <tr><td class="k">Thị trường vốn</td><td>VN-Index, thanh khoản, dòng vốn ngoại.</td></tr>
+          <tr><td class="k">Tăng trưởng</td><td>GDP thực, IIP, PMI, tổng mức bán lẻ</td><td>Tăng trưởng đến từ khu vực nào? Đang tăng tốc hay chậm lại?</td></tr>
+          <tr><td class="k">Lạm phát</td><td>CPI, CPI cơ bản</td><td>Áp lực giá đến từ đâu? Có tạo sức ép lên lãi suất không?</td></tr>
+          <tr><td class="k">Tiền tệ &amp; tín dụng</td><td>Lãi suất, tăng trưởng tín dụng, USD/VND</td><td>Chính sách đang nới lỏng hay thắt chặt? Vốn chảy vào đâu?</td></tr>
+          <tr><td class="k">Tài khóa &amp; đầu tư công</td><td>Thu chi ngân sách, giải ngân đầu tư công</td><td>Đầu tư công có đang là động lực tăng trưởng?</td></tr>
+          <tr><td class="k">Đối ngoại &amp; FDI</td><td>Xuất nhập khẩu, cán cân thương mại, FDI</td><td>Nhu cầu bên ngoài và dòng vốn FDI thay đổi ra sao?</td></tr>
+          <tr><td class="k">Thị trường vốn</td><td>VN-Index, thanh khoản, dòng vốn ngoại</td><td>Thị trường đang phản ánh kỳ vọng gì về nền kinh tế?</td></tr>
+        </tbody>
+      </table></div>
+      <p class="muted" style="font-size:.88rem">Nguồn gợi ý: Tổng cục Thống kê, Ngân hàng Nhà nước, Bộ Tài chính, Tổng cục Hải quan, HOSE/HNX. Nên ghi nguồn và kỳ dữ liệu dưới mỗi bảng, biểu đồ.</p>
+    </section>
+
+    <section class="part">
+      <div class="part-head"><span class="part-no">PHẦN 2</span><h2>Tổng quan 05 ngành</h2><span class="part-meta">Gợi ý: 2–3 trang mỗi ngành</span></div>
+      <div class="prose">
+        <p><b>Mục đích.</b> Trước khi bàn vĩ mô tác động thế nào, cần hiểu ngành đó vận hành và kiếm tiền ra sao. Cả 05 ngành (Ngân hàng, Công nghiệp, Bất động sản, Dịch vụ tài chính, Tiêu dùng &amp; Bán lẻ) đều viết theo cùng 06 mục để dễ so sánh.</p>
+        <h4>06 mục cho mỗi ngành</h4>
+        <ul class="steps">
+          <li><span><b>Định nghĩa &amp; phân khúc.</b> Ngành gồm những mảng nào và team tập trung vào mảng nào. Ví dụ Bất động sản có nhà ở, khu công nghiệp, bán lẻ và văn phòng; mỗi mảng có chu kỳ rất khác nhau.</span></li>
+          <li><span><b>Chuỗi giá trị &amp; mô hình kinh doanh.</b> Doanh nghiệp tạo doanh thu từ đâu, chi phí lớn nhất là gì, lợi nhuận nằm ở khâu nào. Ví dụ ngân hàng kiếm tiền chủ yếu từ chênh lệch lãi suất (NIM), phần còn lại từ phí dịch vụ.</span></li>
+          <li><span><b>Cấu trúc thị trường.</b> Quy mô ngành, mức độ tập trung, các doanh nghiệp dẫn đầu và lợi thế cạnh tranh của họ.</span></li>
+          <li><span><b>Động lực tăng trưởng &amp; rủi ro nội tại.</b> Yếu tố riêng của ngành như pháp lý, công nghệ, cạnh tranh, nguồn vốn. Phần vĩ mô để dành cho Phần 3.</span></li>
+          <li><span><b>KPI vận hành.</b> 3–5 chỉ số đặc thù của ngành và lý do chúng quan trọng.</span></li>
+          <li><span><b>Doanh nghiệp tham chiếu &amp; định giá.</b> 3–5 doanh nghiệp niêm yết tiêu biểu, phương pháp định giá ngành hay dùng (ví dụ P/B cho ngân hàng, RNAV cho bất động sản) và vì sao phương pháp đó phù hợp.</span></li>
+        </ul>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Ngành</th><th>Phạm vi gợi ý</th><th>KPI gợi ý</th><th>Định giá thường dùng</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Ngân hàng</td><td>Huy động, cho vay, chất lượng tài sản, thu nhập lãi và ngoài lãi</td><td>Tăng trưởng tín dụng, CASA, NIM, NPL, ROE</td><td>P/B, P/E</td></tr>
+          <tr><td class="k">Công nghiệp</td><td>Sản xuất, khu công nghiệp, logistics, vận tải</td><td>Công suất, tỷ lệ lấp đầy, backlog, ROIC</td><td>EV/EBITDA, P/E</td></tr>
+          <tr><td class="k">Bất động sản</td><td>Nhà ở, khu công nghiệp, thương mại</td><td>Presales, tỷ lệ hấp thụ, quỹ đất, đòn bẩy</td><td>RNAV, P/B</td></tr>
+          <tr><td class="k">Dịch vụ tài chính</td><td>Chứng khoán, quản lý tài sản, bảo hiểm</td><td>Thị phần môi giới, dư nợ margin, AUM, ROE</td><td>P/B, P/E</td></tr>
+          <tr><td class="k">Tiêu dùng &amp; Bán lẻ</td><td>FMCG, F&amp;B, bán lẻ hiện đại</td><td>SSSG, biên gộp, số cửa hàng, vòng quay tồn kho</td><td>P/E, EV/EBITDA</td></tr>
         </tbody>
       </table></div>
     </section>
 
-    <section>
-      <div class="section-head">
-        <span class="eyebrow">Phần 2</span>
-        <h2>Tổng quan 05 ngành</h2>
-        <p class="lede">Ngân hàng, Công nghiệp, Bất động sản, Dịch vụ tài chính, Tiêu dùng &amp; Bán lẻ. Mỗi ngành viết theo cùng 06 mục:</p>
+    <section class="part">
+      <div class="part-head"><span class="part-no">PHẦN 3</span><h2>Phân tích Vĩ mô → Ngành</h2><span class="part-meta">Gợi ý: 1–2 trang mỗi ngành</span></div>
+      <div class="prose">
+        <p><b>Mục đích.</b> Đây là phần quan trọng nhất của report: nối bức tranh vĩ mô ở Phần 1 với từng ngành ở Phần 2. Thay vì liệt kê mọi yếu tố vĩ mô, hãy chọn ra những yếu tố thực sự chi phối từng ngành và giải thích cơ chế tác động.</p>
+        <h4>Với mỗi ngành, phân tích theo 04 bước</h4>
+        <ul class="steps">
+          <li><span><b>Driver vĩ mô chính.</b> Chọn 2–3 yếu tố vĩ mô ảnh hưởng mạnh nhất đến ngành và giải thích vì sao chọn chúng.</span></li>
+          <li><span><b>Kênh truyền dẫn.</b> Mô tả từng bước driver đó đi vào kết quả kinh doanh: tác động lên cầu, giá bán, chi phí, biên lợi nhuận hay định giá.</span></li>
+          <li><span><b>Chiều và độ trễ tác động.</b> Tác động tích cực hay tiêu cực, xảy ra ngay hay sau vài quý. Tránh kết luận chung chung kiểu "lãi suất giảm là tốt cho tất cả".</span></li>
+          <li><span><b>KPI theo dõi.</b> 1–3 chỉ số giúp kiểm chứng nhận định khi có dữ liệu mới.</span></li>
+        </ul>
+        <div class="example"><b>Ví dụ (Bất động sản):</b> Driver là lãi suất cho vay. Khi lãi suất mua nhà giảm, khả năng chi trả của người mua tăng và chi phí vốn của chủ đầu tư giảm, từ đó doanh số bán hàng (presales) cải thiện, thường sau một độ trễ vài quý. KPI theo dõi: lãi suất cho vay mua nhà, tỷ lệ hấp thụ, presales của các chủ đầu tư lớn.</div>
+        <p>Cuối phần, nên có một đoạn so sánh giữa các ngành: ngành nào nhạy nhất với lãi suất, với tỷ giá, với nhu cầu toàn cầu. Đoạn này sẽ là đầu vào trực tiếp cho Phần 4.</p>
       </div>
-      <ol class="clean">
-        <li>Định nghĩa &amp; phân khúc</li>
-        <li>Chuỗi giá trị &amp; mô hình kinh doanh</li>
-        <li>Cấu trúc thị trường &amp; doanh nghiệp tiêu biểu</li>
-        <li>Động lực tăng trưởng &amp; rủi ro</li>
-        <li>Chỉ số vận hành quan trọng (KPI)</li>
-        <li>Doanh nghiệp niêm yết tham chiếu &amp; phương pháp định giá thường dùng</li>
-      </ol>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <span class="eyebrow">Phần 3</span>
-        <h2>Phân tích Vĩ mô → Ngành</h2>
-        <p class="lede">Phân tích lần lượt từng ngành: yếu tố vĩ mô nào là driver chính và tác động lên ngành đó ra sao. Mỗi ngành đi theo 04 bước:</p>
-      </div>
-      <ol class="clean">
-        <li><b>Driver vĩ mô chính:</b> 2–3 yếu tố vĩ mô ảnh hưởng mạnh nhất đến ngành.</li>
-        <li><b>Kênh truyền dẫn:</b> driver đó tác động đến doanh thu, chi phí, lợi nhuận hay định giá của doanh nghiệp trong ngành như thế nào.</li>
-        <li><b>Chiều và độ trễ tác động:</b> tích cực hay tiêu cực, ngắn hạn hay dài hạn.</li>
-        <li><b>KPI theo dõi:</b> 1–3 chỉ số để kiểm chứng nhận định.</li>
-      </ol>
       <div class="tbl"><table>
         <thead><tr><th>Ngành</th><th>Driver gợi ý</th><th>KPI gợi ý</th></tr></thead>
         <tbody>
-          <tr><td class="k">Ngân hàng</td><td>Tăng trưởng tín dụng, lãi suất &amp; chính sách tiền tệ, chu kỳ kinh tế (chất lượng tài sản).</td><td>Tín dụng, NIM, NPL.</td></tr>
-          <tr><td class="k">Công nghiệp</td><td>FDI, xuất khẩu &amp; nhu cầu toàn cầu, đầu tư công.</td><td>PMI, IIP, tỷ lệ lấp đầy KCN.</td></tr>
-          <tr><td class="k">Bất động sản</td><td>Lãi suất &amp; tín dụng, pháp lý, thu nhập hộ gia đình, hạ tầng.</td><td>Presales, tỷ lệ hấp thụ, nguồn cung mới.</td></tr>
-          <tr><td class="k">Dịch vụ tài chính</td><td>Thanh khoản thị trường, lãi suất, dòng vốn ngoại.</td><td>Giá trị giao dịch, dư nợ margin, thị phần môi giới.</td></tr>
-          <tr><td class="k">Tiêu dùng &amp; Bán lẻ</td><td>Thu nhập &amp; sức mua, lạm phát, du lịch.</td><td>Tổng mức bán lẻ, SSSG, CPI.</td></tr>
+          <tr><td class="k">Ngân hàng</td><td>Tăng trưởng tín dụng, lãi suất &amp; chính sách tiền tệ, chu kỳ kinh tế (chất lượng tài sản)</td><td>Tín dụng, NIM, NPL</td></tr>
+          <tr><td class="k">Công nghiệp</td><td>FDI, xuất khẩu &amp; nhu cầu toàn cầu, đầu tư công</td><td>PMI, IIP, tỷ lệ lấp đầy KCN</td></tr>
+          <tr><td class="k">Bất động sản</td><td>Lãi suất &amp; tín dụng, pháp lý, thu nhập hộ gia đình, hạ tầng</td><td>Presales, tỷ lệ hấp thụ, nguồn cung mới</td></tr>
+          <tr><td class="k">Dịch vụ tài chính</td><td>Thanh khoản thị trường, lãi suất, dòng vốn ngoại</td><td>Giá trị giao dịch, dư nợ margin, thị phần môi giới</td></tr>
+          <tr><td class="k">Tiêu dùng &amp; Bán lẻ</td><td>Thu nhập &amp; sức mua, lạm phát, du lịch</td><td>Tổng mức bán lẻ, SSSG, CPI</td></tr>
         </tbody>
       </table></div>
     </section>
 
-    <section>
-      <div class="section-head">
-        <span class="eyebrow">Phần 4</span>
-        <h2>Outlook 2027</h2>
-      </div>
-      <ol class="clean">
-        <li>Kịch bản vĩ mô 2027 (gợi ý: cơ sở, tích cực, tiêu cực)</li>
-        <li>Cơ hội và rủi ro của 05 ngành</li>
-        <li>Các chỉ báo nên theo dõi</li>
-      </ol>
-      <p class="muted" style="font-size:.88rem">Không cần khuyến nghị mua/bán hay giá mục tiêu.</p>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <span class="eyebrow">Thuyết trình 26–27/12</span>
-        <h2>Slide trình bày</h2>
-        <p class="lede">15 phút trình bày, 10 phút Q&amp;A. Slide tóm tắt lại 04 phần của report; không cần nộp slide trước.</p>
+    <section class="part">
+      <div class="part-head"><span class="part-no">PHẦN 4</span><h2>Outlook 2027</h2><span class="part-meta">Gợi ý: 3–5 trang</span></div>
+      <div class="prose">
+        <p><b>Mục đích.</b> Từ ba phần trước, đưa ra góc nhìn có điều kiện về năm 2027: nếu vĩ mô diễn biến theo hướng này, ngành nào hưởng lợi, ngành nào chịu áp lực. Phần này không cần khuyến nghị mua/bán hay giá mục tiêu cổ phiếu.</p>
+        <ul class="steps">
+          <li><span><b>Kịch bản vĩ mô 2027.</b> Gợi ý 03 kịch bản: cơ sở, tích cực, tiêu cực. Mỗi kịch bản nêu giả định chính (tăng trưởng GDP, lãi suất, tỷ giá, xuất khẩu…) và điều gì có thể khiến kịch bản đó xảy ra.</span></li>
+          <li><span><b>Cơ hội và rủi ro theo ngành.</b> Trong từng kịch bản, ngành nào hưởng lợi, ngành nào chịu áp lực và vì sao, dựa trên các driver đã phân tích ở Phần 3.</span></li>
+          <li><span><b>Chỉ báo nên theo dõi.</b> Những tín hiệu sớm cho biết nền kinh tế đang đi theo kịch bản nào, ví dụ diễn biến lãi suất điều hành, số liệu PMI hằng tháng hay dòng vốn FDI giải ngân.</span></li>
+        </ul>
       </div>
     </section>
 
-    <section>
-      <div class="section-head">
-        <span class="eyebrow">Đánh giá</span>
-        <h2>Cách chấm điểm</h2>
+    <section class="part">
+      <div class="part-head"><span class="part-no">THUYẾT TRÌNH</span><h2>26–27/12</h2><span class="part-meta">15 phút + 10 phút Q&amp;A</span></div>
+      <div class="prose">
+        <p>Slide tóm tắt lại report, không cần nộp trước. Nên tập trung vào insight thay vì chép lại report. Phân bổ thời gian gợi ý: vĩ mô khoảng 3 phút, 05 ngành và driver khoảng 7 phút, Outlook 2027 khoảng 3 phút, kết luận 2 phút.</p>
+        <p>Trong Q&amp;A, BTC có thể hỏi bất kỳ thành viên nào về bất kỳ ngành nào, nên cả team nên nắm toàn bộ report chứ không chỉ phần mình viết.</p>
       </div>
+    </section>
+
+    <section class="part">
+      <div class="part-head"><span class="part-no">ĐÁNH GIÁ</span><h2>Cách chấm điểm</h2></div>
       <div class="two">
         <div class="tbl"><table>
           <thead><tr><th>Report &amp; thuyết trình</th><th>Trọng số</th></tr></thead>
           <tbody>
-            <tr><td>Hiểu biết vĩ mô</td><td class="k mono">20%</td></tr>
-            <tr><td>Kiến thức 05 ngành</td><td class="k mono">25%</td></tr>
-            <tr><td>Liên kết vĩ mô–ngành</td><td class="k mono">25%</td></tr>
+            <tr><td>Hiểu biết vĩ mô (Phần 1)</td><td class="k mono">20%</td></tr>
+            <tr><td>Kiến thức 05 ngành (Phần 2)</td><td class="k mono">25%</td></tr>
+            <tr><td>Phân tích vĩ mô → ngành &amp; outlook (Phần 3–4)</td><td class="k mono">25%</td></tr>
             <tr><td>Chất lượng dữ liệu &amp; nghiên cứu</td><td class="k mono">15%</td></tr>
             <tr><td>Trình bày &amp; Q&amp;A</td><td class="k mono">15%</td></tr>
           </tbody>
         </table></div>
         <div class="panel">
           <h4>Đánh giá cá nhân (26–27/12)</h4>
-          <p>Dự kiến 20–25 câu trắc nghiệm và 03 câu hỏi ngắn về nội dung 04 phần.</p>
+          <p>Dự kiến 20–25 câu trắc nghiệm và 03 câu hỏi ngắn về nội dung 04 phần, để mỗi thành viên kiểm tra lại mức độ hiểu của mình về cả vĩ mô lẫn 05 ngành.</p>
         </div>
       </div>
     </section>
