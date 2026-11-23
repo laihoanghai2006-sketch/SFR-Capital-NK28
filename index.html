@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
+<title>SFR Capital Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: banner masthead → sticky tab bar → one column of sections (max 1080px); December calendar is the anchor of the plan tab */
+:root{
+  --bg:#FBF8F7; --surface:#FFFFFF; --sunken:#F4EEEE; --fg:#1E1214; --muted:#6B585B; --line:#E6D9DA;
+  --accent:#B0121E; --accent-ink:#FFFFFF; --accent-soft:#F8E4E5;
+  --good:#1D7A4C; --good-soft:#E2F2EA; --warn:#A35F00; --warn-soft:#FBEFD9; --bad:#B0121E; --bad-soft:#F8E4E5;
+  --w1:#C9D8F0; --w2:#D6E9D3; --w3:#F1DDB8; --w4:#EBC9CF; --w5:#B0121E; --w6:#DDD3E9;
+  --font-display:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --radius:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#150B0D; --surface:#20120F; --sunken:#1B0E10; --fg:#F3E9EA; --muted:#B49FA2; --line:#3B2629;
+  --accent:#EE4450; --accent-ink:#1A0709; --accent-soft:#3A1519;
+  --good:#45BC80; --good-soft:#123222; --warn:#E3A645; --warn-soft:#352610; --bad:#EE4450; --bad-soft:#3A1519;
+  --w1:#2A3A57; --w2:#244330; --w3:#4D3B1C; --w4:#542A31; --w5:#EE4450; --w6:#3B2F4C;
+  --surface:#21141A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#150B0D; --surface:#21141A; --sunken:#1B0E10; --fg:#F3E9EA; --muted:#B49FA2; --line:#3B2629;
+  --accent:#EE4450; --accent-ink:#1A0709; --accent-soft:#3A1519;
+  --good:#45BC80; --good-soft:#123222; --warn:#E3A645; --warn-soft:#352610; --bad:#EE4450; --bad-soft:#3A1519;
+  --w1:#2A3A57; --w2:#244330; --w3:#4D3B1C; --w4:#542A31; --w5:#EE4450; --w6:#3B2F4C;
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1080px;margin:0 auto}
+h1,h2,h3,h4{font-family:var(--font-display);text-wrap:balance;margin:0;line-height:1.25}
+h2{font-size:1.45rem;font-weight:800;letter-spacing:-.01em}
+h3{font-size:1.1rem;font-weight:700}
+h4{font-size:.95rem;font-weight:700}
+p{margin:0}
+a{color:var(--accent)}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* masthead */
+.mast{padding-top:16px;display:grid;gap:18px}
+.banner{width:100%;aspect-ratio:1800/447;max-width:100%;border-radius:var(--radius);overflow:hidden;background:#1a0507;display:block}
+.banner img{width:100%;height:100%;object-fit:cover;display:block}
+.mast-row{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px;align-items:end}
+.mast h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;letter-spacing:-.02em}
+.mast .sub{margin-top:6px;color:var(--muted);max-width:60ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.fact{font-size:.8rem;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.fact b{font-weight:700}
+.next{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;display:grid;gap:4px}
+.next .when{font-family:var(--font-mono);font-size:1.6rem;font-weight:600;color:var(--accent);line-height:1.1}
+.next .what{font-weight:600}
+@media (max-width:720px){.mast-row{grid-template-columns:1fr}}
+
+/* tabs */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);margin-top:20px;border-bottom:1px solid var(--line);
+  display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tabs a{flex:0 0 auto;padding:12px 14px;text-decoration:none;color:var(--muted);font-weight:600;font-size:.92rem;border-bottom:3px solid transparent;margin-bottom:-1px}
+.tabs a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--accent)}
+.tabs a:hover{color:var(--fg)}
+main{padding-top:28px}
+.view{display:grid;gap:36px}
+section{display:grid;gap:14px;min-width:0}
+.section-head{display:grid;gap:4px}
+.lede{max-width:70ch;color:var(--muted)}
+
+.notice{border:1px solid var(--accent);background:var(--accent-soft);border-radius:var(--radius);padding:14px 16px;display:grid;gap:4px}
+.notice b{color:var(--accent)}
+
+/* calendar */
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.cal .dow{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:0 4px}
+.day{min-height:78px;border-radius:8px;padding:6px 7px;background:var(--sunken);display:flex;flex-direction:column;gap:3px;min-width:0;position:relative}
+.day .n{font-family:var(--font-mono);font-weight:600;font-size:.85rem}
+.day .ev{font-size:.7rem;line-height:1.25;font-weight:600}
+.day.blank{background:transparent}
+.day.p1{background:var(--w1)} .day.p2{background:var(--w2)} .day.p3{background:var(--w3)} .day.p4{background:var(--w4)} .day.p6{background:var(--w6)}
+.day.p5{background:var(--w5);color:var(--accent-ink)}
+.day.today{outline:2px solid var(--fg);outline-offset:1px}
+.day .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block;margin-right:4px;vertical-align:1px}
+.day.p5 .dot{background:var(--accent-ink)}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;font-size:.8rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:14px;height:14px;border-radius:4px;display:inline-block}
+@media (max-width:560px){.day{min-height:54px;padding:4px}.day .ev{display:none}.day .n{font-size:.78rem}}
+
+/* phases */
+.phases{display:grid;gap:12px}
+.phase{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px;padding:18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.phase .tag{display:grid;gap:4px;align-content:start}
+.phase .swatch{width:28px;height:6px;border-radius:3px}
+.phase .dates{font-family:var(--font-mono);font-weight:600;font-size:.9rem}
+.phase .lbl{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.phase .body{display:grid;gap:10px;min-width:0}
+.phase.key{border-color:var(--accent)}
+.checkpoint{font-size:.88rem;background:var(--sunken);border-radius:8px;padding:10px 12px}
+.checkpoint b{color:var(--accent)}
+@media (max-width:640px){.phase{grid-template-columns:1fr;gap:10px}}
+
+ul.clean{margin:0;padding-left:1.1em;display:grid;gap:4px}
+ul.clean li::marker{color:var(--accent)}
+
+/* tables */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;background:var(--sunken);white-space:nowrap}
+td.k{font-weight:600;white-space:nowrap}
+td .due{font-family:var(--font-mono);white-space:nowrap}
+
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.panel{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:16px;display:grid;gap:8px;align-content:start;min-width:0}
+
+/* teams */
+.teams{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.team{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:16px;display:grid;gap:10px;align-content:start}
+.team-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.team-letter{font-family:var(--font-display);font-weight:800;font-size:1.5rem;color:var(--accent);line-height:1}
+.team ol{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.team li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;font-size:.9rem;align-items:baseline}
+.role{font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.role.lead{color:var(--accent)}
+.k5{font-family:var(--font-mono);font-size:.75rem;color:var(--muted)}
+
+.folders{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.folder{display:grid;gap:6px;padding:16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);text-decoration:none;color:var(--fg)}
+.folder:hover{border-color:var(--accent)}
+tr.past td{color:var(--muted)}
+/* submit */
+form{display:grid;gap:12px}
+.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:720px){.fields{grid-template-columns:1fr}}
+label{display:grid;gap:4px;font-size:.82rem;font-weight:600}
+input,select,textarea{font:inherit;font-size:.92rem;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 10px;width:100%;min-width:0}
+textarea{min-height:64px;resize:vertical}
+button{font:inherit;font-weight:700;border:0;border-radius:8px;padding:10px 18px;cursor:pointer;background:var(--accent);color:var(--accent-ink)}
+button:disabled{opacity:.5;cursor:not-allowed}
+.btn-ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.msg{font-size:.88rem}
+.msg.ok{color:var(--good)} .msg.err{color:var(--bad)}
+.slotinfo{font-size:.82rem;color:var(--muted)}
+
+.board td,.board th{text-align:center;white-space:nowrap;padding:8px 8px}
+.board td:first-child,.board th:first-child{text-align:left;position:sticky;left:0;background:var(--surface);z-index:1}
+.board th:first-child{background:var(--sunken)}
+.board th .sl{display:block;text-transform:none;letter-spacing:0;font-weight:600;font-size:.72rem}
+.pill{display:inline-block;font-size:.72rem;font-weight:700;padding:3px 8px;border-radius:999px;font-family:var(--font-mono)}
+.pill.ok{background:var(--good-soft);color:var(--good)}
+.pill.late{background:var(--warn-soft);color:var(--warn)}
+.pill.miss{background:var(--bad-soft);color:var(--bad)}
+.pill.wait{background:var(--sunken);color:var(--muted)}
+.stateline{font-size:.82rem;color:var(--muted)}
+.list td a{word-break:break-all}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header class="mast">
+    <div class="banner"><img src="banner.jpg" alt="SFR Capital: đại bàng đỏ đậu trên đỉnh núi nến"></div>
+    <div class="mast-row">
+      <div>
+        <div class="eyebrow">SFR Capital · Nhiệm kỳ 28 · Foundation Program</div>
+        <h1>Vietnam Macroeconomy &amp; Industry Landscape</h1>
+        <p class="sub">Tháng 12/2026, cả 05 team cùng xây nền tảng về kinh tế vĩ mô Việt Nam và tổng quan 05 ngành. Chưa team nào nhận ngành phụ trách; việc phân ngành bắt đầu từ tháng 01/2027.</p>
+        <div class="facts">
+          <span class="fact"><b>01/12 – 27/12</b>/2026</span>
+          <span class="fact"><b>05</b> team · <b>29</b> thành viên</span>
+          <span class="fact">Thuyết trình <b>26–27/12</b></span>
+        </div>
+      </div>
+      <div class="next" id="next" aria-live="polite">
+        <span class="eyebrow">Hạn tiếp theo</span>
+        <span class="when" id="next-when">—</span>
+        <span class="what" id="next-what"></span>
+        <span class="muted mono" id="next-date" style="font-size:.82rem"></span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="Mục">
+    <a href="#lo-trinh" data-view="lo-trinh">Lộ trình</a>
+    <a href="#de-bai" data-view="de-bai">Đề bài</a>
+    <a href="#team" data-view="team">Team</a>
+    <a href="#nop-bai" data-view="nop-bai">Nộp bài</a>
+  </nav>
+
+  <main>
+  <!-- ============ LỘ TRÌNH ============ -->
+  <div class="view" id="v-lo-trinh">
+    <div class="notice">
+      <b>Tháng 12 chỉ phân tích tổng quan</b>
+      <p>Cả 05 team cùng nghiên cứu một phạm vi chung: vĩ mô Việt Nam và toàn bộ 05 ngành. Đây chưa phải giai đoạn viết báo cáo khuyến nghị mua/bán, đặt giá mục tiêu hay định giá chuyên sâu từng doanh nghiệp.</p>
+    </div>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Lịch tháng 12/2026</span>
+        <h2>Bốn tuần nội dung, thuyết trình cuối tuần 26–27/12</h2>
+      </div>
+      <div class="cal" id="cal"></div>
+      <div class="legend">
+        <span><i style="background:var(--w1)"></i>Tuần 1 · Vĩ mô</span>
+        <span><i style="background:var(--w2)"></i>Tuần 2 · 05 ngành</span>
+        <span><i style="background:var(--w3)"></i>Tuần 3 · Vĩ mô → ngành</span>
+        <span><i style="background:var(--w4)"></i>Tuần 4 · Outlook &amp; hoàn thiện</span>
+        <span><i style="background:var(--w5)"></i>Thuyết trình</span>
+        <span><i style="background:var(--w6)"></i>Tổng kết</span>
+        <span><span class="dot" style="width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block"></span>Hạn nộp (23:59)</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Lộ trình triển khai</span>
+        <h2>Từng giai đoạn và mốc kiểm tra</h2>
+      </div>
+      <div class="phases">
+        <article class="phase">
+          <div class="tag"><span class="swatch" style="background:var(--w1)"></span><span class="lbl">Tuần 1</span><span class="dates">01 – 06/12</span></div>
+          <div class="body">
+            <h3>Vietnam Macroeconomic Overview</h3>
+            <p class="muted">Xây dựng bức tranh tổng quan kinh tế Việt Nam, nhận diện các chỉ báo cần theo dõi và hoàn thành bộ dữ liệu vĩ mô nền tảng.</p>
+            <div class="tbl"><table>
+              <thead><tr><th>Nội dung</th><th>Yêu cầu</th><th>Đầu ra</th></tr></thead>
+              <tbody>
+                <tr><td class="k">Kick-off (01/12)</td><td>Giới thiệu phạm vi, template, quy tắc nguồn dữ liệu, cách ghi đơn vị và kỳ báo cáo.</td><td>Thống nhất research template và đầu mối từng đầu việc.</td></tr>
+                <tr><td class="k">Tăng trưởng</td><td>GDP thực, cơ cấu GDP, tăng trưởng theo khu vực; sản xuất công nghiệp, PMI, bán lẻ và tiêu dùng.</td><td>Bộ chỉ báo tăng trưởng và nhận định xu hướng.</td></tr>
+                <tr><td class="k">Lạm phát &amp; tiền tệ</td><td>CPI, CPI cơ bản, lãi suất, tín dụng, cung tiền/thanh khoản, tỷ giá và định hướng điều hành.</td><td>Bảng dữ liệu và ghi chú về chính sách tiền tệ.</td></tr>
+                <tr><td class="k">Tài khóa &amp; đối ngoại</td><td>Thu-chi ngân sách, đầu tư công, xuất nhập khẩu, cán cân thương mại, FDI đăng ký/giải ngân.</td><td>Tổng hợp động lực và rủi ro từ tài khóa/đối ngoại.</td></tr>
+                <tr><td class="k">Thị trường vốn</td><td>Diễn biến thị trường cổ phiếu, thanh khoản, dòng vốn ngoại và các chỉ báo phù hợp.</td><td>Bộ chỉ báo thị trường vốn, ghi rõ nguồn và ngày dữ liệu.</td></tr>
+              </tbody>
+            </table></div>
+            <div class="checkpoint"><b>Checkpoint 06/12 · Nộp nháp D1.</b> Danh sách chỉ báo và nguồn đã thống nhất; dashboard nháp có dữ liệu tối thiểu 03 năm gần nhất (số liệu 2026 chưa đủ kỳ ghi rõ YTD/sơ bộ).</div>
+          </div>
+        </article>
+
+        <article class="phase">
+          <div class="tag"><span class="swatch" style="background:var(--w2)"></span><span class="lbl">Tuần 2</span><span class="dates">07 – 13/12</span></div>
+          <div class="body">
+            <h3>Five-Industry Landscape</h3>
+            <p class="muted">Hiểu cấu trúc và cách vận hành của cả 05 ngành bằng cùng một template, để không ngành nào bị nghiên cứu theo một cách riêng. Phạm vi và KPI từng ngành xem ở tab Đề bài.</p>
+            <ul class="clean">
+              <li>Mỗi team tổng hợp đủ 05 ngành; phân công đầu mối theo đầu việc, không theo ngành.</li>
+              <li>Cuối tuần teach-back: mỗi thành viên giải thích ít nhất 01 ngành ngoài phần mình tổng hợp chính.</li>
+            </ul>
+            <div class="checkpoint"><b>Checkpoint 13/12 · Nộp nháp D2.</b> 05 industry overview sheets theo cùng một cấu trúc.</div>
+          </div>
+        </article>
+
+        <article class="phase">
+          <div class="tag"><span class="swatch" style="background:var(--w3)"></span><span class="lbl">Tuần 3</span><span class="dates">14 – 19/12</span></div>
+          <div class="body">
+            <h3>Macro-to-Industry Analysis</h3>
+            <p class="muted">Chuyển từ mô tả chỉ báo sang giải thích tác động: vì sao cùng một thay đổi vĩ mô lại ảnh hưởng khác nhau đến từng ngành.</p>
+            <ul class="clean">
+              <li>Đánh giá tác động trực tiếp/gián tiếp của 07 yếu tố vĩ mô lên cả 05 ngành.</li>
+              <li>Phân biệt chiều tích cực/tiêu cực và ngắn hạn/dài hạn; tránh kết luận kiểu "lãi suất giảm là tốt cho tất cả".</li>
+              <li>Chỉ ra ngành nhạy cảm nhất, kênh truyền dẫn và 1–3 KPI để kiểm chứng.</li>
+            </ul>
+            <div class="checkpoint"><b>Checkpoint 19/12 · Nộp nháp D3.</b> Bản nháp ma trận Vĩ mô–ngành, đã phản biện giữa các thành viên.</div>
+          </div>
+        </article>
+
+        <article class="phase">
+          <div class="tag"><span class="swatch" style="background:var(--w4)"></span><span class="lbl">Tuần 4</span><span class="dates">20 – 25/12</span></div>
+          <div class="body">
+            <h3>Vietnam Market Outlook 2027 &amp; hoàn thiện</h3>
+            <p class="muted">Tổng hợp thành quan điểm có cấu trúc về bối cảnh 2027 trên cả 05 ngành. Không yêu cầu khuyến nghị mua/bán hay giá mục tiêu.</p>
+            <div class="tbl"><table>
+              <thead><tr><th>Ngày</th><th>Công việc</th><th>Kết quả</th></tr></thead>
+              <tbody>
+                <tr><td class="k mono">20 – 22/12</td><td>Xây dựng triển vọng 2027 theo kịch bản cơ sở, tích cực, tiêu cực; xác định cơ hội, rủi ro, KPI cần theo dõi.</td><td>Nộp nháp D4 (22/12).</td></tr>
+                <tr><td class="k mono">23/12</td><td>Kiểm tra chéo số liệu, biểu đồ, nguồn giữa dashboard, industry sheets, ma trận và outlook.</td><td>Nộp bản cuối D1–D4.</td></tr>
+                <tr><td class="k mono">24 – 25/12</td><td>Hoàn thiện slide, phân công người trình bày, chuẩn bị câu hỏi phản biện và ôn bài kiểm tra cá nhân.</td><td>Nộp slide D5 (25/12).</td></tr>
+              </tbody>
+            </table></div>
+          </div>
+        </article>
+
+        <article class="phase key">
+          <div class="tag"><span class="swatch" style="background:var(--w5)"></span><span class="lbl">Thuyết trình</span><span class="dates">26 – 27/12</span></div>
+          <div class="body">
+            <h3>Final presentation, Q&amp;A và đánh giá cá nhân</h3>
+            <ul class="clean">
+              <li>Mỗi team trình bày 15 phút và Q&amp;A 10 phút. Thành viên có thể được hỏi ngẫu nhiên về bất kỳ ngành nào.</li>
+              <li>Bài kiểm tra cá nhân diễn ra trong 02 ngày này.</li>
+              <li>Khung giờ của từng team sẽ được Ban Đầu tư Tài chính thông báo sau.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="phase">
+          <div class="tag"><span class="swatch" style="background:var(--w6)"></span><span class="lbl">Tổng kết</span><span class="dates">28 – 31/12</span></div>
+          <div class="body">
+            <h3>Phản hồi kết quả và nguyện vọng ngành</h3>
+            <p class="muted">Gửi phản hồi kết quả Foundation và thu thập nguyện vọng ngành của từng thành viên (hạn 31/12). Phân bổ ngành cho 05 team được công bố đầu tháng 01/2027.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Nhịp làm việc mỗi tuần</span>
+        <h2>Ba lần gặp ngắn mỗi tuần</h2>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Thời điểm</th><th>Hoạt động</th><th>Mục đích</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Đầu tuần</td><td>Briefing 30–45 phút: thống nhất mục tiêu, đầu việc, người phụ trách và tiêu chuẩn hoàn thành.</td><td>Cả team hiểu rõ tuần này cần hoàn thành gì.</td></tr>
+          <tr><td class="k">Giữa tuần</td><td>Progress check 15–20 phút: rà soát task tracker, khó khăn dữ liệu, điểm cần hỗ trợ.</td><td>Phát hiện sớm phần chậm tiến độ hoặc thiếu dữ liệu.</td></tr>
+          <tr><td class="k">Cuối tuần</td><td>Peer review / teach-back 30–45 phút: thành viên trình bày, phản biện và cập nhật deliverable.</td><td>Kiểm tra mức độ hiểu chung và chất lượng đầu ra.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+  </div>
+
+  <!-- ============ ĐỀ BÀI ============ -->
+  <div class="view" id="v-de-bai" hidden>
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Mục tiêu</span>
+        <h2>Sau tháng 12, mỗi thành viên cần</h2>
+      </div>
+      <ul class="clean">
+        <li>Hiểu các chỉ báo chính của kinh tế Việt Nam, xu hướng 03 năm gần nhất và các yếu tố có thể ảnh hưởng đến triển vọng 2027.</li>
+        <li>Nắm cấu trúc, mô hình kinh doanh, động lực tăng trưởng, rủi ro và chỉ số vận hành quan trọng của cả 05 ngành.</li>
+        <li>Giải thích được cơ chế truyền dẫn từ thay đổi vĩ mô đến doanh thu, chi phí, lợi nhuận, dòng tiền và định giá của từng ngành.</li>
+        <li>Biết tìm kiếm, kiểm tra, trích dẫn và trình bày dữ liệu từ nguồn đáng tin cậy.</li>
+        <li>Trình bày và trả lời câu hỏi về cả vĩ mô lẫn 05 ngành, không chỉ phần mình trực tiếp phụ trách.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Deliverables</span>
+        <h2>05 sản phẩm và hạn nộp</h2>
+        <p class="lede">Tất cả hạn nộp tính đến 23:59 giờ Việt Nam. Tải file vào thư mục Drive của team, xem ở tab Nộp bài.</p>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Mã</th><th>Deliverable</th><th>Định dạng / nội dung bắt buộc</th><th>Bản nháp</th><th>Bản cuối</th></tr></thead>
+        <tbody>
+          <tr><td class="k mono">D1</td><td class="k">Vietnam Macroeconomic Dashboard</td><td>Excel. Dữ liệu tối thiểu 03 năm gần nhất; 06 nhóm chỉ báo; biểu đồ xu hướng; đơn vị, kỳ dữ liệu, nguồn, ghi chú số sơ bộ/YTD.</td><td><span class="due">06/12</span></td><td><span class="due">23/12</span></td></tr>
+          <tr><td class="k mono">D2</td><td class="k">Five Industry Overview Sheets</td><td>05 sheets hoặc 05 phần đồng nhất trong một file: phân khúc, value chain, business model, drivers, risks, KPI, doanh nghiệp tham chiếu, phương pháp định giá thường dùng.</td><td><span class="due">13/12</span></td><td><span class="due">23/12</span></td></tr>
+          <tr><td class="k mono">D3</td><td class="k">Macro-to-Industry Matrix</td><td>Ma trận kết nối yếu tố vĩ mô với cả 05 ngành: kênh truyền dẫn, chiều tác động, thời gian tác động, ngành nhạy cảm, KPI theo dõi.</td><td><span class="due">19/12</span></td><td><span class="due">23/12</span></td></tr>
+          <tr><td class="k mono">D4</td><td class="k">Vietnam Industry Outlook 2027</td><td>Báo cáo tổng hợp triển vọng; kịch bản cơ sở/tích cực/tiêu cực; cơ hội, rủi ro và biến số cần theo dõi cho 05 ngành.</td><td><span class="due">22/12</span></td><td><span class="due">23/12</span></td></tr>
+          <tr><td class="k mono">D5</td><td class="k">Final Presentation</td><td>15–20 slides; trình bày 15 phút, Q&amp;A 10 phút. Tập trung vào insight, biểu đồ và lập luận, không chép lại báo cáo.</td><td class="muted">—</td><td><span class="due">25/12</span></td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">A · D1</span>
+        <h2>Vietnam Macroeconomic Dashboard</h2>
+        <p class="lede">Dữ liệu lịch sử tối thiểu 03 năm và kỳ cập nhật mới nhất. Ưu tiên chuỗi có thể so sánh theo tháng/quý/năm; ghi rõ đơn vị, kỳ dữ liệu, ngày truy cập và nguồn.</p>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Nhóm chỉ báo</th><th>Nội dung tối thiểu</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Tăng trưởng</td><td>GDP thực; tăng trưởng theo khu vực kinh tế; sản xuất công nghiệp/IIP; PMI; tổng mức bán lẻ hàng hóa và doanh thu dịch vụ.</td></tr>
+          <tr><td class="k">Lạm phát</td><td>CPI, CPI cơ bản; các nhóm cấu thành CPI nếu có; yếu tố thúc đẩy hoặc làm giảm lạm phát.</td></tr>
+          <tr><td class="k">Tiền tệ &amp; tín dụng</td><td>Lãi suất điều hành; lãi suất huy động/cho vay; tăng trưởng tín dụng; thanh khoản/cung tiền nếu có; tỷ giá USD/VND.</td></tr>
+          <tr><td class="k">Tài khóa &amp; đầu tư công</td><td>Thu, chi ngân sách, bội chi (nếu có); kế hoạch và giải ngân đầu tư công; các dự án hạ tầng quan trọng.</td></tr>
+          <tr><td class="k">Đối ngoại &amp; FDI</td><td>Xuất khẩu, nhập khẩu, cán cân thương mại; FDI đăng ký và giải ngân; diễn biến đơn hàng và nhu cầu toàn cầu.</td></tr>
+          <tr><td class="k">Thị trường vốn</td><td>VN-Index hoặc chỉ số phù hợp; giá trị giao dịch; dòng vốn ngoại; thông tin thị trường trái phiếu/cổ phiếu liên quan.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">B · D2</span>
+        <h2>Five Industry Overview Sheets</h2>
+        <p class="lede">Mỗi team nghiên cứu đủ cả 05 ngành dưới đây bằng cùng một template.</p>
+      </div>
+      <div class="two">
+        <div class="panel">
+          <h4>Template chung cho mỗi ngành</h4>
+          <ul class="clean">
+            <li><b>Industry definition &amp; segmentation:</b> định nghĩa, phân khúc chính, phạm vi nghiên cứu.</li>
+            <li><b>Value chain &amp; business model:</b> chuỗi giá trị, cách tạo doanh thu, cấu trúc chi phí, nguồn lợi nhuận.</li>
+            <li><b>Market structure:</b> quy mô và động lực thị trường, doanh nghiệp tiêu biểu, cạnh tranh.</li>
+            <li><b>Growth drivers &amp; risks:</b> chu kỳ, pháp lý, cạnh tranh, công nghệ, vốn, vận hành.</li>
+            <li><b>Key operating metrics:</b> chỉ số vận hành đặc thù và vì sao quan trọng.</li>
+            <li><b>Listed-company references &amp; valuation:</b> 3–5 doanh nghiệp niêm yết tham chiếu; chỉ số định giá thường dùng và hạn chế của chúng.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Cách làm để không "mỗi người một phần"</h4>
+          <p>Người được giao đầu mối chỉ chịu trách nhiệm thúc đẩy và chuẩn hóa bản nháp. Mỗi tuần team tổ chức teach-back ngắn; thành viên khác đặt câu hỏi và phản biện. Team Lead/Vice Lead xoay vòng người trình bày để mọi thành viên thực sự nắm toàn bộ nội dung.</p>
+        </div>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Ngành</th><th>Phạm vi cần nghiên cứu</th><th>Chỉ số / góc nhìn cần nhận diện</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Ngân hàng</td><td>Huy động, cho vay, chất lượng tài sản, tăng trưởng tín dụng, nguồn vốn, thu nhập lãi và ngoài lãi.</td><td>Tăng trưởng tín dụng, CASA, NIM, NPL, dự phòng, tỷ lệ bao phủ nợ xấu, ROE; P/B, P/E.</td></tr>
+          <tr><td class="k">Công nghiệp</td><td>Sản xuất, khu công nghiệp, logistics và vận tải; nhu cầu từ FDI, xuất khẩu, hạ tầng và chu kỳ sản xuất.</td><td>PMI, IIP, FDI, đơn hàng, công suất, tỷ lệ lấp đầy, giá thuê, backlog, ROIC; EV/EBITDA, P/E.</td></tr>
+          <tr><td class="k">Bất động sản</td><td>Nhà ở, khu công nghiệp, thương mại; chuỗi phát triển dự án, pháp lý, nguồn cung, hấp thụ, giá bán, presales, bàn giao, vốn và nợ.</td><td>Nguồn cung, tỷ lệ hấp thụ, giá bán/giá thuê, presales, backlog, đòn bẩy; P/B, RNAV/NAV, P/E.</td></tr>
+          <tr><td class="k">Dịch vụ tài chính</td><td>Chứng khoán, quản lý tài sản, bảo hiểm; môi giới, cho vay ký quỹ, tự doanh, IB, AUM, thu nhập phí.</td><td>Thanh khoản thị trường, dư nợ margin, thị phần môi giới, AUM, thu nhập phí, ROE; P/B, P/E.</td></tr>
+          <tr><td class="k">Tiêu dùng &amp; Bán lẻ</td><td>FMCG, F&amp;B, bán lẻ hiện đại; sức mua, hệ thống cửa hàng, thị phần, cấu trúc biên lợi nhuận.</td><td>Tăng trưởng doanh thu, SSSG, giá trị đơn hàng, biên gộp, tồn kho, số cửa hàng; P/E, EV/EBITDA.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">C · D3</span>
+        <h2>Macro-to-Industry Matrix</h2>
+        <p class="lede">Với mỗi yếu tố vĩ mô, đánh giá tác động lên cả 05 ngành: kênh truyền dẫn, chiều tác động (tích cực/tiêu cực), độ trễ (ngắn/dài hạn), ngành nhạy cảm nhất và 1–3 KPI để kiểm chứng.</p>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Yếu tố vĩ mô</th><th>Câu hỏi phân tích bắt buộc</th><th>KPI gợi ý</th></tr></thead>
+        <tbody>
+          <tr><td class="k">GDP / hoạt động kinh tế</td><td>Tăng trưởng tác động đến nhu cầu tín dụng, mua nhà, tiêu dùng, sản xuất và thị trường vốn qua kênh nào?</td><td>GDP, bán lẻ, IIP, PMI, tín dụng.</td></tr>
+          <tr><td class="k">Lạm phát</td><td>Chi phí đầu vào, sức mua, biên lợi nhuận và kỳ vọng lãi suất thay đổi thế nào?</td><td>CPI, CPI cơ bản, giá nguyên liệu, biên gộp.</td></tr>
+          <tr><td class="k">Lãi suất / tín dụng / thanh khoản</td><td>Chi phí vốn, khả năng tiếp cận vốn và nhu cầu vay thay đổi ra sao? Ngành nào nhạy cảm nhất?</td><td>Lãi suất huy động/cho vay, tín dụng, NIM, chi phí lãi vay.</td></tr>
+          <tr><td class="k">Tỷ giá</td><td>Tác động đến doanh nghiệp nhập khẩu, xuất khẩu, doanh nghiệp có nợ ngoại tệ và dòng vốn đầu tư?</td><td>USD/VND, doanh thu xuất khẩu, chi phí nhập khẩu, nợ ngoại tệ.</td></tr>
+          <tr><td class="k">Đầu tư công / hạ tầng</td><td>Ngành và mắt xích nào hưởng lợi trực tiếp/gián tiếp? Độ trễ bao lâu?</td><td>Giải ngân đầu tư công, backlog, giá thuê đất KCN, IIP.</td></tr>
+          <tr><td class="k">FDI / nhu cầu toàn cầu</td><td>Dòng vốn và đơn hàng quốc tế truyền dẫn sang sản xuất, logistics, KCN và tỷ giá ra sao?</td><td>FDI đăng ký/giải ngân, xuất khẩu, PMI, lấp đầy KCN.</td></tr>
+          <tr><td class="k">Thu nhập / sức mua hộ gia đình</td><td>Sức mua thay đổi ảnh hưởng đến tiêu dùng thiết yếu và không thiết yếu thế nào?</td><td>Bán lẻ, SSSG, sản lượng, giá bán, biên lợi nhuận.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">D · D4 &amp; D5</span>
+        <h2>Outlook 2027 và slide cuối kỳ</h2>
+      </div>
+      <div class="two">
+        <div class="panel">
+          <h4>Vietnam Industry Outlook 2027</h4>
+          <ul class="clean">
+            <li>03 kịch bản: cơ sở, tích cực, tiêu cực, kèm giả định vĩ mô của từng kịch bản.</li>
+            <li>Cơ hội và rủi ro chính của cả 05 ngành trong năm 2027.</li>
+            <li>Các biến số/KPI cần theo dõi để biết kịch bản nào đang xảy ra.</li>
+            <li>Không khuyến nghị mua/bán, không giá mục tiêu cổ phiếu.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Cấu trúc slide khuyến nghị (15–20 slides)</h4>
+          <ul class="clean">
+            <li>1–2: Executive summary và bức tranh vĩ mô Việt Nam.</li>
+            <li>2–3: Động lực vĩ mô chính và kịch bản 2027.</li>
+            <li>5: Mỗi ngành 01 slide (cấu trúc, động lực, rủi ro, KPI nổi bật).</li>
+            <li>2–3: Ma trận tác động và so sánh mức độ nhạy cảm.</li>
+            <li>2–3: Outlook 2027, kết luận, chỉ báo cần theo dõi.</li>
+            <li>1: Sources &amp; methodology.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Chuẩn hóa</span>
+        <h2>Quy chuẩn phân tích và checklist trước khi nộp</h2>
+      </div>
+      <div class="two">
+        <div class="tbl"><table>
+          <thead><tr><th>Thành phần</th><th>Quy chuẩn tối thiểu</th></tr></thead>
+          <tbody>
+            <tr><td class="k">Số liệu</td><td>Có đơn vị, kỳ dữ liệu, nguồn, ngày truy cập; phân biệt số thực tế, ước tính, dự báo, sơ bộ.</td></tr>
+            <tr><td class="k">Biểu đồ</td><td>Tiêu đề nêu thông điệp, trục/đơn vị rõ, nguồn bên dưới; không dùng biểu đồ để trang trí.</td></tr>
+            <tr><td class="k">Nhận định</td><td>Mỗi kết luận quan trọng đi kèm dữ liệu hoặc cơ chế; nêu cả điều kiện có thể làm luận điểm sai.</td></tr>
+            <tr><td class="k">So sánh</td><td>Cùng kỳ, cùng đơn vị, cùng định nghĩa; nêu rõ khi dữ liệu không hoàn toàn tương đồng.</td></tr>
+          </tbody>
+        </table></div>
+        <div class="panel">
+          <h4>Checklist</h4>
+          <ul class="clean">
+            <li>Mọi số liệu quan trọng có nguồn và kỳ dữ liệu.</li>
+            <li>Bảng/biểu đồ có đơn vị, tiêu đề, chú thích.</li>
+            <li>Không mâu thuẫn giữa dashboard, industry sheets, ma trận và slide.</li>
+            <li>Đã phân biệt dữ liệu lịch sử, sơ bộ, ước tính, dự báo.</li>
+            <li>Mọi thành viên đọc và giải thích được cả 05 ngành.</li>
+          </ul>
+          <p class="muted" style="font-size:.85rem">Nguồn ưu tiên: cơ quan thống kê, Ngân hàng Nhà nước, cơ quan quản lý, hải quan, sở giao dịch chứng khoán, BCTC và công bố thông tin doanh nghiệp. Báo cáo của công ty chứng khoán chỉ dùng để bổ trợ và cần kiểm chứng.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Đánh giá</span>
+        <h2>Cách chấm điểm</h2>
+      </div>
+      <div class="two">
+        <div class="tbl"><table>
+          <thead><tr><th>Sản phẩm nhóm</th><th>Trọng số</th></tr></thead>
+          <tbody>
+            <tr><td><b>Hiểu biết vĩ mô</b><br><span class="muted">Chọn đúng chỉ báo, đọc đúng xu hướng, hiểu giới hạn dữ liệu.</span></td><td class="k mono">20%</td></tr>
+            <tr><td><b>Kiến thức 05 ngành</b><br><span class="muted">Mô hình kinh doanh, cấu trúc ngành, KPI, động lực, rủi ro.</span></td><td class="k mono">25%</td></tr>
+            <tr><td><b>Liên kết vĩ mô–ngành</b><br><span class="muted">Kênh truyền dẫn, chiều tác động, độ trễ, khác biệt giữa các ngành.</span></td><td class="k mono">25%</td></tr>
+            <tr><td><b>Chất lượng dữ liệu &amp; nghiên cứu</b><br><span class="muted">Nguồn tin cậy, dữ liệu nhất quán, nhận định có căn cứ.</span></td><td class="k mono">15%</td></tr>
+            <tr><td><b>Trình bày &amp; Q&amp;A</b><br><span class="muted">Storyline rõ, đúng thời lượng, trả lời có lập luận.</span></td><td class="k mono">15%</td></tr>
+          </tbody>
+        </table></div>
+        <div class="panel">
+          <h4>Đánh giá cá nhân (26–27/12)</h4>
+          <p>Dự kiến 20–25 câu trắc nghiệm và 03 câu hỏi ngắn.</p>
+          <div class="tbl"><table>
+            <tbody>
+              <tr><td>Kinh tế vĩ mô Việt Nam</td><td class="k mono">30%</td></tr>
+              <tr><td>05 ngành trọng tâm</td><td class="k mono">40%</td></tr>
+              <tr><td>Liên kết vĩ mô–ngành &amp; tình huống</td><td class="k mono">30%</td></tr>
+            </tbody>
+          </table></div>
+          <p class="muted" style="font-size:.85rem">Trong Q&amp;A, thành viên có thể được hỏi ngẫu nhiên về bất kỳ ngành nào.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Giai đoạn tiếp theo</span>
+        <h2>Từ tháng 01/2027: phân ngành và nghiên cứu chuyên sâu</h2>
+        <p class="lede">Đầu tháng 01/2027, SFR Capital công bố phân bổ 01 ngành cho mỗi team. Các team chuyển sang industry deep-dive và phát triển góc nhìn đầu tư cho ngành được giao. Việc phân ngành dựa trên:</p>
+      </div>
+      <div class="tbl" style="max-width:560px"><table>
+        <tbody>
+          <tr><td>Mức độ quan tâm / nguyện vọng của thành viên</td><td class="k mono">30%</td></tr>
+          <tr><td>Kết quả đánh giá cá nhân</td><td class="k mono">25%</td></tr>
+          <tr><td>Hiệu quả nghiên cứu và chất lượng deliverables</td><td class="k mono">25%</td></tr>
+          <tr><td>Mức độ phù hợp và cân bằng trong team</td><td class="k mono">20%</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+  </div>
+
+  <!-- ============ TEAM ============ -->
+  <div class="view" id="v-team" hidden>
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Phân team Kỳ Foundation</span>
+        <h2>05 team, 29 thành viên</h2>
+        <p class="lede">Đây là danh sách phân team cho Kỳ Foundation sắp tới (01–27/12/2026). Trong kỳ này, team chưa gắn với ngành nào. Mỗi team có 01 Team Lead, 01 Vice Lead, các thành viên còn lại là Analyst.</p>
+      </div>
+      <div class="teams" id="teams"></div>
+    </section>
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Vai trò trong Foundation</span>
+        <h2>Phân công theo đầu việc, không theo ngành</h2>
+        <p class="lede">Team Lead và Vice Lead điều phối; Analyst nhận đầu việc nghiên cứu do team tự phân công.</p>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Vai trò</th><th>Trách nhiệm</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Team Lead</td><td>Điều phối chung; thống nhất storyline; bảo đảm các phần liên kết; dẫn dắt thảo luận; chịu trách nhiệm chất lượng bài trình bày cuối.</td></tr>
+          <tr><td class="k">Vice Lead</td><td>Theo dõi timeline và task tracker; tổng hợp tiến độ; kiểm tra nguồn, đơn vị, kỳ dữ liệu; rà soát nhất quán giữa các deliverables; nộp bài đúng hạn.</td></tr>
+          <tr><td class="k">Analyst</td><td>Thực hiện các đầu việc nghiên cứu được team phân công; tham gia teach-back, đọc và phản biện chéo nội dung của cả 05 ngành.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+  </div>
+
+  <!-- ============ NỘP BÀI ============ -->
+  <div class="view" id="v-nop-bai" hidden>
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Nộp bài</span>
+        <h2>Tải sản phẩm lên thư mục Drive của team</h2>
+        <p class="lede">Mỗi team có một thư mục Google Drive riêng. Vice Lead (hoặc người được team phân công) tải file vào đúng thư mục của team mình trước 23:59 ngày hạn. Ban Đầu tư Tài chính tính giờ nộp theo thời điểm file được tải lên Drive.</p>
+      </div>
+      <div class="folders" id="folders"></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Quy tắc đặt tên file</span>
+        <h2>Team_Mã_Phiên bản</h2>
+        <p class="lede">Đặt tên đúng quy tắc để BTC đối chiếu nhanh. Định dạng gốc (Excel, Word/PDF, PowerPoint/PDF) đều được nhận.</p>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Hạng mục</th><th>Hạn nộp</th><th>Tên file mẫu</th></tr></thead>
+        <tbody id="naming"></tbody>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Lưu ý</span>
+        <h2>Trước khi tải lên</h2>
+      </div>
+      <ul class="clean">
+        <li>Chỉ tải vào thư mục của team mình; không mở, sửa hay xóa file trong thư mục của team khác.</li>
+        <li>Nộp bản mới thì tải file mới (ví dụ thêm <span class="mono">_v2</span>), không ghi đè hay xóa file cũ.</li>
+        <li>Sau hạn nộp, không chỉnh sửa file đã nộp. File tải lên sau 23:59 được ghi nhận là nộp trễ.</li>
+        <li>Nếu nộp bằng Google Sheets/Docs/Slides, tạo file ngay trong thư mục team và đặt tên theo quy tắc trên.</li>
+      </ul>
+    </section>
+  </div>
+  </main>
+</div>
+
+<script>
+(function(){
+const TZ="Asia/Ho_Chi_Minh";
+const TEAMS={
+ A:[["Nguyễn Quỳnh Anh","Team Lead","K51"],["Ngô Quang Vũ","Vice Lead","K51"],["Nguyễn Khiếu An Khương","Analyst","K51"],["Nguyễn Ngọc Hân","Analyst","K50"],["Trần Thị Ngọc Khuê","Analyst","K50"],["Trần Vũ Minh Châu","Analyst","K50"]],
+ B:[["Bùi Thái Uyên","Team Lead","K50"],["Nguyễn Văn Nam","Vice Lead","K50"],["Lê Thị Thanh Huyền","Analyst","K51"],["Nguyễn Ngọc Tố Mai","Analyst","K51"],["Trần Nguyễn Ánh Giang","Analyst","K50"],["Trần Tấn Phát","Analyst","K51"]],
+ C:[["Nguyễn Ngọc Minh Thư","Team Lead","K50"],["Nguyễn Khánh Linh","Vice Lead","K50"],["Nguyễn Ngọc Trúc Anh","Analyst","K51"],["Trương Thái Bảo","Analyst","K51"],["Trần Mỹ Duyên","Analyst","K50"],["Trần Ngọc Bảo Hân","Analyst","K51"]],
+ D:[["Nguyễn Thị Thu Thủy","Team Lead","K50"],["Lê Xuân Sang","Vice Lead","K51"],["Lê Nguyễn Thanh Thảo","Analyst","K51"],["Nguyễn Lữ Quốc Trung","Analyst","K50"],["Phạm Văn Gia Hân","Analyst","K51"],["Đặng Bửu Khánh","Analyst","K51"]],
+ E:[["Nguyễn Quang Duy","Team Lead","K51"],["Võ Thị Hồng Nhung","Vice Lead","K51"],["Lữ Đức Lương","Analyst","K50"],["Nguyễn Anh Như","Analyst","K51"],["Nguyễn Đoàn Uyên Nhi","Analyst","K50"]]
+};
+const due=d=>new Date(d+"T23:59:59+07:00");
+const SLOTS=[
+ {id:"d1n",code:"D1",name:"Macro Dashboard",ver:"Nháp",due:due("2026-12-06")},
+ {id:"d2n",code:"D2",name:"Industry Overview Sheets",ver:"Nháp",due:due("2026-12-13")},
+ {id:"d3n",code:"D3",name:"Macro-to-Industry Matrix",ver:"Nháp",due:due("2026-12-19")},
+ {id:"d4n",code:"D4",name:"Industry Outlook 2027",ver:"Nháp",due:due("2026-12-22")},
+ {id:"d1f",code:"D1",name:"Macro Dashboard",ver:"Bản cuối",due:due("2026-12-23")},
+ {id:"d2f",code:"D2",name:"Industry Overview Sheets",ver:"Bản cuối",due:due("2026-12-23")},
+ {id:"d3f",code:"D3",name:"Macro-to-Industry Matrix",ver:"Bản cuối",due:due("2026-12-23")},
+ {id:"d4f",code:"D4",name:"Industry Outlook 2027",ver:"Bản cuối",due:due("2026-12-23")},
+ {id:"d5",code:"D5",name:"Final Presentation (slide)",ver:"Bản cuối",due:due("2026-12-25")}
+];
+const SLOT=Object.fromEntries(SLOTS.map(s=>[s.id,s]));
+const fmtDT=new Intl.DateTimeFormat("vi-VN",{timeZone:TZ,day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false});
+const fmtD=new Intl.DateTimeFormat("vi-VN",{timeZone:TZ,weekday:"long",day:"2-digit",month:"2-digit",year:"numeric"});
+const dm=d=>new Intl.DateTimeFormat("en-GB",{timeZone:TZ,day:"2-digit",month:"2-digit"}).format(d);
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const lsGet=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
+const lsSet=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
+
+/* ---------- tabs ---------- */
+const VIEWS=["lo-trinh","de-bai","team","nop-bai"];
+function route(){
+  const h=(location.hash||"").slice(1); const v=VIEWS.includes(h)?h:"lo-trinh";
+  VIEWS.forEach(x=>{$("v-"+x).hidden=x!==v});
+  document.querySelectorAll(".tabs a").forEach(a=>{if(a.dataset.view===v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+}
+addEventListener("hashchange",route); route();
+
+/* ---------- calendar ---------- */
+const PH=d=>d<=6?"p1":d<=13?"p2":d<=19?"p3":d<=25?"p4":d<=27?"p5":"p6";
+const EV={1:"Kick-off",6:"Nháp D1",13:"Nháp D2",19:"Nháp D3",22:"Nháp D4",23:"Bản cuối D1–D4",25:"Slide D5",26:"Thuyết trình",27:"Thuyết trình · Kiểm tra cá nhân",31:"Nguyện vọng ngành"};
+const DL=new Set([6,13,19,22,23,25,31]);
+(function(){
+  const cal=$("cal"); let h=["T2","T3","T4","T5","T6","T7","CN"].map(d=>`<div class="dow">${d}</div>`).join("");
+  h+=`<div class="day blank"></div>`; // 01/12/2026 là thứ Ba
+  const todayKey=new Intl.DateTimeFormat("en-CA",{timeZone:TZ}).format(new Date());
+  for(let d=1;d<=31;d++){
+    const key="2026-12-"+String(d).padStart(2,"0");
+    h+=`<div class="day ${PH(d)}${key===todayKey?" today":""}"><span class="n">${String(d).padStart(2,"0")}</span>${EV[d]?`<span class="ev">${DL.has(d)?'<span class="dot"></span>':""}${EV[d]}</span>`:""}</div>`;
+  }
+  cal.innerHTML=h;
+})();
+
+/* ---------- next deadline ---------- */
+function tickNext(){
+  const now=new Date();
+  const events=[{t:new Date("2026-12-01T00:00:00+07:00"),what:"Kick-off Foundation"}]
+   .concat([...new Map(SLOTS.map(s=>[s.due.getTime(),s])).values()].map(s=>({t:s.due,what:s.due.getTime()===due("2026-12-23").getTime()?"Bản cuối D1–D4":(s.ver==="Nháp"?"Nháp ":"")+s.code+" · "+s.name})))
+   .concat([{t:new Date("2026-12-26T08:00:00+07:00"),what:"Final presentation"}]);
+  const nx=events.find(e=>e.t>now);
+  if(!nx){$("next-when").textContent="Đã kết thúc";$("next-what").textContent="Foundation tháng 12 đã hoàn tất";$("next-date").textContent="";return}
+  const ms=nx.t-now, d=Math.floor(ms/864e5), hh=Math.floor(ms%864e5/36e5);
+  $("next-when").textContent=d>0?`${d} ngày ${hh} giờ`:`${hh} giờ ${Math.floor(ms%36e5/6e4)} phút`;
+  $("next-what").textContent=nx.what;
+  $("next-date").textContent=fmtD.format(nx.t)+(nx.what.startsWith("Kick")||nx.what.startsWith("Final")?"":" · 23:59");
+}
+tickNext(); setInterval(tickNext,60000);
+
+/* ---------- teams ---------- */
+$("teams").innerHTML=Object.entries(TEAMS).map(([t,ms])=>`
+  <article class="team"><div class="team-head"><span class="team-letter">Team ${t}</span><span class="muted mono" style="font-size:.8rem">${ms.length} người</span></div>
+  <ol>${ms.map(([n,r,k])=>`<li><span>${esc(n)}<br><span class="role${r!=="Analyst"?" lead":""}">${r}</span></span><span class="k5">${k}</span></li>`).join("")}</ol></article>`).join("");
+
+/* ---------- submission folders ---------- */
+const FOLDERS={
+ A:"https://drive.google.com/drive/folders/1W2GqOwl7zO9CxrqzdMMqKvc3kNjUK9kn",
+ B:"https://drive.google.com/drive/folders/1lRFsq6moW7naBh4Er_tw5R-6i-LpxSIh",
+ C:"https://drive.google.com/drive/folders/16waVlLDxDYLGdvih0zvuQzM-Q0NNtjYY",
+ D:"https://drive.google.com/drive/folders/1x6u7f8Ihybp7vYPH0sNrCBbaVc9AwCiG",
+ E:"https://drive.google.com/drive/folders/1h55eKXU33hsrDAic0vbBVntNQA4JQH_F"
+};
+$("folders").innerHTML=Object.keys(TEAMS).map(t=>`<a class="folder" href="${FOLDERS[t]}" target="_blank" rel="noopener"><span class="team-letter">Team ${t}</span><span class="muted">Mở thư mục nộp bài ↗</span></a>`).join("");
+const FN={d1n:"D1_Nhap",d2n:"D2_Nhap",d3n:"D3_Nhap",d4n:"D4_Nhap",d1f:"D1_BanCuoi",d2f:"D2_BanCuoi",d3f:"D3_BanCuoi",d4f:"D4_BanCuoi",d5:"D5_Slide"};
+const now=new Date();
+$("naming").innerHTML=SLOTS.map(s=>`<tr${now>s.due?' class="past"':""}><td class="k">${s.code} · ${esc(s.name)} <span class="muted">(${s.ver})</span></td><td class="mono">${dm(s.due)} · 23:59</td><td class="mono">TeamA_${FN[s.id]}</td></tr>`).join("");
+})();
+</script>
+
+</body>
+</html>
