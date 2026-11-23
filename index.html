@@ -142,8 +142,8 @@ section{display:grid;gap:14px;min-width:0}
 .checkpoint b{color:var(--accent)}
 @media (max-width:640px){.phase{grid-template-columns:1fr;gap:10px}}
 
-ul.clean{margin:0;padding-left:1.1em;display:grid;gap:4px}
-ul.clean li::marker{color:var(--accent)}
+ul.clean,ol.clean{margin:0;padding-left:1.1em;display:grid;gap:4px}
+ul.clean li::marker,ol.clean li::marker{color:var(--accent)}
 
 /* tables */
 .tbl{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
@@ -267,16 +267,16 @@ button:disabled{opacity:.5;cursor:not-allowed}
     <section>
       <div class="section-head">
         <span class="eyebrow">Lộ trình triển khai</span>
-        <h2>Từng giai đoạn và mốc kiểm tra</h2>
+        <h2>Từng tuần làm gì, nộp gì</h2>
       </div>
       <div class="phases">
         <article class="phase">
           <div class="tag"><span class="swatch" style="background:var(--w1)"></span><span class="lbl">Tuần 1</span><span class="dates">01 – 06/12</span></div>
           <div class="body">
             <h3>Vietnam Macroeconomic Overview</h3>
-            <p class="muted">Xây dựng bức tranh tổng quan kinh tế Việt Nam, nhận diện các chỉ báo cần theo dõi và hoàn thành bộ dữ liệu vĩ mô nền tảng.</p>
+            <p class="muted">Xây dựng bức tranh tổng quan kinh tế Việt Nam và bộ dữ liệu vĩ mô nền tảng. Các nhóm chỉ báo dưới đây là gợi ý, team chọn những chỉ báo phù hợp.</p>
             <div class="tbl"><table>
-              <thead><tr><th>Nội dung</th><th>Yêu cầu</th><th>Đầu ra</th></tr></thead>
+              <thead><tr><th>Nội dung</th><th>Gợi ý</th><th>Đầu ra</th></tr></thead>
               <tbody>
                 <tr><td class="k">Kick-off (01/12)</td><td>Giới thiệu phạm vi, template, quy tắc nguồn dữ liệu, cách ghi đơn vị và kỳ báo cáo.</td><td>Thống nhất research template và đầu mối từng đầu việc.</td></tr>
                 <tr><td class="k">Tăng trưởng</td><td>GDP thực, cơ cấu GDP, tăng trưởng theo khu vực; sản xuất công nghiệp, PMI, bán lẻ và tiêu dùng.</td><td>Bộ chỉ báo tăng trưởng và nhận định xu hướng.</td></tr>
@@ -285,7 +285,7 @@ button:disabled{opacity:.5;cursor:not-allowed}
                 <tr><td class="k">Thị trường vốn</td><td>Diễn biến thị trường cổ phiếu, thanh khoản, dòng vốn ngoại và các chỉ báo phù hợp.</td><td>Bộ chỉ báo thị trường vốn, ghi rõ nguồn và ngày dữ liệu.</td></tr>
               </tbody>
             </table></div>
-            <div class="checkpoint"><b>Checkpoint 06/12 · Nộp nháp D1.</b> Danh sách chỉ báo và nguồn đã thống nhất; dashboard nháp có dữ liệu tối thiểu 03 năm gần nhất (số liệu 2026 chưa đủ kỳ ghi rõ YTD/sơ bộ).</div>
+            <div class="checkpoint"><b>Nộp D1 · 06/12.</b> Vietnam Macroeconomic Dashboard.</div>
           </div>
         </article>
 
@@ -295,10 +295,10 @@ button:disabled{opacity:.5;cursor:not-allowed}
             <h3>Five-Industry Landscape</h3>
             <p class="muted">Hiểu cấu trúc và cách vận hành của cả 05 ngành bằng cùng một template, để không ngành nào bị nghiên cứu theo một cách riêng. Phạm vi và KPI từng ngành xem ở tab Đề bài.</p>
             <ul class="clean">
-              <li>Mỗi team tổng hợp đủ 05 ngành; phân công đầu mối theo đầu việc, không theo ngành.</li>
-              <li>Cuối tuần teach-back: mỗi thành viên giải thích ít nhất 01 ngành ngoài phần mình tổng hợp chính.</li>
+              <li>Mỗi team tổng hợp cả 05 ngành theo cùng một cấu trúc.</li>
+              <li>Khuyến khích teach-back cuối tuần để mọi người nắm được các ngành ngoài phần mình làm.</li>
             </ul>
-            <div class="checkpoint"><b>Checkpoint 13/12 · Nộp nháp D2.</b> 05 industry overview sheets theo cùng một cấu trúc.</div>
+            <div class="checkpoint"><b>Nộp D2 · 13/12.</b> Five Industry Overview Sheets.</div>
           </div>
         </article>
 
@@ -308,11 +308,10 @@ button:disabled{opacity:.5;cursor:not-allowed}
             <h3>Macro-to-Industry Analysis</h3>
             <p class="muted">Chuyển từ mô tả chỉ báo sang giải thích tác động: vì sao cùng một thay đổi vĩ mô lại ảnh hưởng khác nhau đến từng ngành.</p>
             <ul class="clean">
-              <li>Đánh giá tác động trực tiếp/gián tiếp của 07 yếu tố vĩ mô lên cả 05 ngành.</li>
-              <li>Phân biệt chiều tích cực/tiêu cực và ngắn hạn/dài hạn; tránh kết luận kiểu "lãi suất giảm là tốt cho tất cả".</li>
-              <li>Chỉ ra ngành nhạy cảm nhất, kênh truyền dẫn và 1–3 KPI để kiểm chứng.</li>
+              <li>Gợi ý xem xét tác động của các yếu tố vĩ mô chính lên cả 05 ngành.</li>
+              <li>Nên phân biệt chiều tích cực/tiêu cực, ngắn hạn/dài hạn thay vì kết luận chung chung.</li>
             </ul>
-            <div class="checkpoint"><b>Checkpoint 19/12 · Nộp nháp D3.</b> Bản nháp ma trận Vĩ mô–ngành, đã phản biện giữa các thành viên.</div>
+            <div class="checkpoint"><b>Nộp D3 · 19/12.</b> Macro-to-Industry Matrix.</div>
           </div>
         </article>
 
@@ -320,13 +319,12 @@ button:disabled{opacity:.5;cursor:not-allowed}
           <div class="tag"><span class="swatch" style="background:var(--w4)"></span><span class="lbl">Tuần 4</span><span class="dates">20 – 25/12</span></div>
           <div class="body">
             <h3>Vietnam Market Outlook 2027 &amp; hoàn thiện</h3>
-            <p class="muted">Tổng hợp thành quan điểm có cấu trúc về bối cảnh 2027 trên cả 05 ngành. Không yêu cầu khuyến nghị mua/bán hay giá mục tiêu.</p>
+            <p class="muted">Tổng hợp thành quan điểm về bối cảnh 2027 trên cả 05 ngành. Không cần khuyến nghị mua/bán hay giá mục tiêu.</p>
             <div class="tbl"><table>
               <thead><tr><th>Ngày</th><th>Công việc</th><th>Kết quả</th></tr></thead>
               <tbody>
-                <tr><td class="k mono">20 – 22/12</td><td>Xây dựng triển vọng 2027 theo kịch bản cơ sở, tích cực, tiêu cực; xác định cơ hội, rủi ro, KPI cần theo dõi.</td><td>Nộp nháp D4 (22/12).</td></tr>
-                <tr><td class="k mono">23/12</td><td>Kiểm tra chéo số liệu, biểu đồ, nguồn giữa dashboard, industry sheets, ma trận và outlook.</td><td>Nộp bản cuối D1–D4.</td></tr>
-                <tr><td class="k mono">24 – 25/12</td><td>Hoàn thiện slide, phân công người trình bày, chuẩn bị câu hỏi phản biện và ôn bài kiểm tra cá nhân.</td><td>Nộp slide D5 (25/12).</td></tr>
+                <tr><td class="k mono">20 – 23/12</td><td>Xây dựng triển vọng 2027, gợi ý theo 03 kịch bản cơ sở, tích cực, tiêu cực.</td><td>Nộp D4 (23/12).</td></tr>
+                <tr><td class="k mono">24 – 25/12</td><td>Làm slide, phân công người trình bày, chuẩn bị Q&amp;A.</td><td>Nộp D5 (25/12).</td></tr>
               </tbody>
             </table></div>
           </div>
@@ -348,7 +346,7 @@ button:disabled{opacity:.5;cursor:not-allowed}
           <div class="tag"><span class="swatch" style="background:var(--w6)"></span><span class="lbl">Tổng kết</span><span class="dates">28 – 31/12</span></div>
           <div class="body">
             <h3>Phản hồi kết quả và nguyện vọng ngành</h3>
-            <p class="muted">Gửi phản hồi kết quả Foundation và thu thập nguyện vọng ngành của từng thành viên (hạn 31/12). Phân bổ ngành cho 05 team được công bố đầu tháng 01/2027.</p>
+            <p class="muted">Phản hồi kết quả Foundation và thu thập nguyện vọng ngành của từng thành viên (hạn 31/12). Phân bổ ngành cho 05 team được công bố đầu tháng 01/2027.</p>
           </div>
         </article>
       </div>
@@ -372,168 +370,143 @@ button:disabled{opacity:.5;cursor:not-allowed}
 
   <!-- ============ ĐỀ BÀI ============ -->
   <div class="view" id="v-de-bai" hidden>
+    <div class="notice">
+      <b>Cách đọc đề bài</b>
+      <p>Mỗi sản phẩm có một cấu trúc gợi ý. Các team chỉ cần làm theo đúng cấu trúc đó; chỉ báo, KPI và câu hỏi bên dưới là gợi ý để tham khảo, không cần làm đủ tất cả. Team tự chọn phạm vi và cách trình bày phù hợp.</p>
+    </div>
+
     <section>
       <div class="section-head">
-        <span class="eyebrow">Mục tiêu</span>
-        <h2>Sau tháng 12, mỗi thành viên cần</h2>
+        <span class="eyebrow">Sản phẩm</span>
+        <h2>05 sản phẩm, mỗi sản phẩm nộp một lần</h2>
+        <p class="lede">Hạn nộp tính đến 23:59 giờ Việt Nam. Tải file vào thư mục Drive của team ở tab Nộp bài.</p>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Mã</th><th>Sản phẩm</th><th>Cấu trúc gợi ý</th><th>Hạn nộp</th></tr></thead>
+        <tbody>
+          <tr><td class="k mono">D1</td><td class="k">Vietnam Macroeconomic Dashboard</td><td>File Excel tổng hợp chỉ báo vĩ mô theo 06 nhóm, kèm biểu đồ xu hướng.</td><td><span class="due">06/12</span></td></tr>
+          <tr><td class="k mono">D2</td><td class="k">Five Industry Overview Sheets</td><td>05 phần cho 05 ngành, cùng một cấu trúc 06 mục.</td><td><span class="due">13/12</span></td></tr>
+          <tr><td class="k mono">D3</td><td class="k">Macro-to-Industry Matrix</td><td>Ma trận: hàng là yếu tố vĩ mô, cột là 05 ngành, mỗi ô là tác động và kênh truyền dẫn.</td><td><span class="due">19/12</span></td></tr>
+          <tr><td class="k mono">D4</td><td class="k">Vietnam Industry Outlook 2027</td><td>Báo cáo ngắn: kịch bản 2027, cơ hội, rủi ro và chỉ báo nên theo dõi.</td><td><span class="due">23/12</span></td></tr>
+          <tr><td class="k mono">D5</td><td class="k">Final Presentation</td><td>Khoảng 15–20 slides; trình bày 15 phút, Q&amp;A 10 phút.</td><td><span class="due">25/12</span></td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">D1</span>
+        <h2>Vietnam Macroeconomic Dashboard</h2>
+        <p class="lede">Gợi ý dùng dữ liệu khoảng 03 năm gần nhất và ghi nguồn cho từng chỉ báo.</p>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Nhóm chỉ báo</th><th>Chỉ báo gợi ý</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Tăng trưởng</td><td>GDP thực, tăng trưởng theo khu vực, IIP, PMI, tổng mức bán lẻ.</td></tr>
+          <tr><td class="k">Lạm phát</td><td>CPI, CPI cơ bản.</td></tr>
+          <tr><td class="k">Tiền tệ &amp; tín dụng</td><td>Lãi suất điều hành, lãi suất huy động/cho vay, tăng trưởng tín dụng, USD/VND.</td></tr>
+          <tr><td class="k">Tài khóa &amp; đầu tư công</td><td>Thu, chi ngân sách; giải ngân đầu tư công.</td></tr>
+          <tr><td class="k">Đối ngoại &amp; FDI</td><td>Xuất nhập khẩu, cán cân thương mại, FDI đăng ký/giải ngân.</td></tr>
+          <tr><td class="k">Thị trường vốn</td><td>VN-Index, giá trị giao dịch, dòng vốn ngoại.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">D2</span>
+        <h2>Five Industry Overview Sheets</h2>
+        <p class="lede">Mỗi team viết cả 05 ngành theo cùng một cấu trúc 06 mục dưới đây.</p>
+      </div>
+      <div class="two">
+        <div class="panel">
+          <h4>Cấu trúc cho mỗi ngành</h4>
+          <ol class="clean">
+            <li>Định nghĩa &amp; phân khúc</li>
+            <li>Chuỗi giá trị &amp; mô hình kinh doanh</li>
+            <li>Cấu trúc thị trường &amp; doanh nghiệp tiêu biểu</li>
+            <li>Động lực tăng trưởng &amp; rủi ro</li>
+            <li>Chỉ số vận hành quan trọng (KPI)</li>
+            <li>Doanh nghiệp niêm yết tham chiếu &amp; phương pháp định giá thường dùng</li>
+          </ol>
+        </div>
+        <div class="panel">
+          <h4>Mẹo làm việc nhóm</h4>
+          <p>Mỗi tuần nên có một buổi teach-back ngắn: người phụ trách phần nào trình bày phần đó, các bạn khác đặt câu hỏi. Như vậy cả team đều nắm được 05 ngành, không phải mỗi người chỉ biết một phần.</p>
+        </div>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Ngành</th><th>Gợi ý phạm vi</th><th>KPI gợi ý</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Ngân hàng</td><td>Huy động, cho vay, chất lượng tài sản, thu nhập lãi và ngoài lãi.</td><td>Tín dụng, CASA, NIM, NPL, ROE; P/B.</td></tr>
+          <tr><td class="k">Công nghiệp</td><td>Sản xuất, khu công nghiệp, logistics, vận tải.</td><td>PMI, IIP, FDI, tỷ lệ lấp đầy, backlog; EV/EBITDA.</td></tr>
+          <tr><td class="k">Bất động sản</td><td>Nhà ở, khu công nghiệp, thương mại; pháp lý, nguồn cung, hấp thụ.</td><td>Presales, tỷ lệ hấp thụ, đòn bẩy; P/B, RNAV.</td></tr>
+          <tr><td class="k">Dịch vụ tài chính</td><td>Chứng khoán, quản lý tài sản, bảo hiểm.</td><td>Thanh khoản thị trường, margin, thị phần môi giới; P/B.</td></tr>
+          <tr><td class="k">Tiêu dùng &amp; Bán lẻ</td><td>FMCG, F&amp;B, bán lẻ hiện đại; sức mua, thị phần.</td><td>SSSG, biên gộp, số cửa hàng; P/E.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">D3</span>
+        <h2>Macro-to-Industry Matrix</h2>
+        <p class="lede">Cấu trúc: mỗi hàng là một yếu tố vĩ mô, mỗi cột là một ngành. Trong mỗi ô, nêu tác động (tích cực/tiêu cực) và kênh truyền dẫn. Các câu hỏi dưới đây là gợi ý để bắt đầu.</p>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Yếu tố vĩ mô</th><th>Câu hỏi gợi ý</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Tăng trưởng GDP</td><td>Tăng trưởng ảnh hưởng đến tín dụng, mua nhà, tiêu dùng, sản xuất qua kênh nào?</td></tr>
+          <tr><td class="k">Lạm phát</td><td>Chi phí đầu vào, sức mua và biên lợi nhuận thay đổi ra sao?</td></tr>
+          <tr><td class="k">Lãi suất / tín dụng</td><td>Ngành nào nhạy cảm nhất với chi phí vốn?</td></tr>
+          <tr><td class="k">Tỷ giá</td><td>Doanh nghiệp xuất khẩu, nhập khẩu, có nợ ngoại tệ bị ảnh hưởng thế nào?</td></tr>
+          <tr><td class="k">Đầu tư công</td><td>Ngành nào hưởng lợi trực tiếp hoặc gián tiếp?</td></tr>
+          <tr><td class="k">FDI / nhu cầu toàn cầu</td><td>Dòng vốn và đơn hàng quốc tế lan sang ngành nào?</td></tr>
+          <tr><td class="k">Sức mua hộ gia đình</td><td>Tiêu dùng thiết yếu và không thiết yếu phản ứng khác nhau thế nào?</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">D4 &amp; D5</span>
+        <h2>Outlook 2027 và slide thuyết trình</h2>
+      </div>
+      <div class="two">
+        <div class="panel">
+          <h4>Cấu trúc gợi ý cho Outlook 2027</h4>
+          <ol class="clean">
+            <li>Kịch bản vĩ mô 2027 (gợi ý: cơ sở, tích cực, tiêu cực)</li>
+            <li>Cơ hội và rủi ro của 05 ngành</li>
+            <li>Các chỉ báo nên theo dõi</li>
+          </ol>
+          <p class="muted" style="font-size:.85rem">Không cần khuyến nghị mua/bán hay giá mục tiêu.</p>
+        </div>
+        <div class="panel">
+          <h4>Cấu trúc gợi ý cho slide (15–20 slides)</h4>
+          <ol class="clean">
+            <li>Executive summary &amp; bức tranh vĩ mô</li>
+            <li>Kịch bản 2027</li>
+            <li>05 ngành, mỗi ngành khoảng 01 slide</li>
+            <li>Ma trận tác động vĩ mô–ngành</li>
+            <li>Outlook 2027 &amp; kết luận</li>
+            <li>Nguồn tham khảo</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Thói quen nên có</span>
+        <h2>Một vài khuyến nghị khi làm bài</h2>
       </div>
       <ul class="clean">
-        <li>Hiểu các chỉ báo chính của kinh tế Việt Nam, xu hướng 03 năm gần nhất và các yếu tố có thể ảnh hưởng đến triển vọng 2027.</li>
-        <li>Nắm cấu trúc, mô hình kinh doanh, động lực tăng trưởng, rủi ro và chỉ số vận hành quan trọng của cả 05 ngành.</li>
-        <li>Giải thích được cơ chế truyền dẫn từ thay đổi vĩ mô đến doanh thu, chi phí, lợi nhuận, dòng tiền và định giá của từng ngành.</li>
-        <li>Biết tìm kiếm, kiểm tra, trích dẫn và trình bày dữ liệu từ nguồn đáng tin cậy.</li>
-        <li>Trình bày và trả lời câu hỏi về cả vĩ mô lẫn 05 ngành, không chỉ phần mình trực tiếp phụ trách.</li>
+        <li>Ghi nguồn và kỳ dữ liệu cho các số liệu quan trọng.</li>
+        <li>Đặt tiêu đề biểu đồ theo thông điệp muốn nói, kèm đơn vị.</li>
+        <li>Mỗi nhận định nên đi kèm dữ liệu hoặc giải thích cơ chế.</li>
+        <li>Ưu tiên nguồn chính thức (Tổng cục Thống kê, Ngân hàng Nhà nước, sở giao dịch, BCTC doanh nghiệp); báo cáo của công ty chứng khoán dùng để tham khảo thêm.</li>
       </ul>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <span class="eyebrow">Deliverables</span>
-        <h2>05 sản phẩm và hạn nộp</h2>
-        <p class="lede">Tất cả hạn nộp tính đến 23:59 giờ Việt Nam. Tải file vào thư mục Drive của team, xem ở tab Nộp bài.</p>
-      </div>
-      <div class="tbl"><table>
-        <thead><tr><th>Mã</th><th>Deliverable</th><th>Định dạng / nội dung bắt buộc</th><th>Bản nháp</th><th>Bản cuối</th></tr></thead>
-        <tbody>
-          <tr><td class="k mono">D1</td><td class="k">Vietnam Macroeconomic Dashboard</td><td>Excel. Dữ liệu tối thiểu 03 năm gần nhất; 06 nhóm chỉ báo; biểu đồ xu hướng; đơn vị, kỳ dữ liệu, nguồn, ghi chú số sơ bộ/YTD.</td><td><span class="due">06/12</span></td><td><span class="due">23/12</span></td></tr>
-          <tr><td class="k mono">D2</td><td class="k">Five Industry Overview Sheets</td><td>05 sheets hoặc 05 phần đồng nhất trong một file: phân khúc, value chain, business model, drivers, risks, KPI, doanh nghiệp tham chiếu, phương pháp định giá thường dùng.</td><td><span class="due">13/12</span></td><td><span class="due">23/12</span></td></tr>
-          <tr><td class="k mono">D3</td><td class="k">Macro-to-Industry Matrix</td><td>Ma trận kết nối yếu tố vĩ mô với cả 05 ngành: kênh truyền dẫn, chiều tác động, thời gian tác động, ngành nhạy cảm, KPI theo dõi.</td><td><span class="due">19/12</span></td><td><span class="due">23/12</span></td></tr>
-          <tr><td class="k mono">D4</td><td class="k">Vietnam Industry Outlook 2027</td><td>Báo cáo tổng hợp triển vọng; kịch bản cơ sở/tích cực/tiêu cực; cơ hội, rủi ro và biến số cần theo dõi cho 05 ngành.</td><td><span class="due">22/12</span></td><td><span class="due">23/12</span></td></tr>
-          <tr><td class="k mono">D5</td><td class="k">Final Presentation</td><td>15–20 slides; trình bày 15 phút, Q&amp;A 10 phút. Tập trung vào insight, biểu đồ và lập luận, không chép lại báo cáo.</td><td class="muted">—</td><td><span class="due">25/12</span></td></tr>
-        </tbody>
-      </table></div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <span class="eyebrow">A · D1</span>
-        <h2>Vietnam Macroeconomic Dashboard</h2>
-        <p class="lede">Dữ liệu lịch sử tối thiểu 03 năm và kỳ cập nhật mới nhất. Ưu tiên chuỗi có thể so sánh theo tháng/quý/năm; ghi rõ đơn vị, kỳ dữ liệu, ngày truy cập và nguồn.</p>
-      </div>
-      <div class="tbl"><table>
-        <thead><tr><th>Nhóm chỉ báo</th><th>Nội dung tối thiểu</th></tr></thead>
-        <tbody>
-          <tr><td class="k">Tăng trưởng</td><td>GDP thực; tăng trưởng theo khu vực kinh tế; sản xuất công nghiệp/IIP; PMI; tổng mức bán lẻ hàng hóa và doanh thu dịch vụ.</td></tr>
-          <tr><td class="k">Lạm phát</td><td>CPI, CPI cơ bản; các nhóm cấu thành CPI nếu có; yếu tố thúc đẩy hoặc làm giảm lạm phát.</td></tr>
-          <tr><td class="k">Tiền tệ &amp; tín dụng</td><td>Lãi suất điều hành; lãi suất huy động/cho vay; tăng trưởng tín dụng; thanh khoản/cung tiền nếu có; tỷ giá USD/VND.</td></tr>
-          <tr><td class="k">Tài khóa &amp; đầu tư công</td><td>Thu, chi ngân sách, bội chi (nếu có); kế hoạch và giải ngân đầu tư công; các dự án hạ tầng quan trọng.</td></tr>
-          <tr><td class="k">Đối ngoại &amp; FDI</td><td>Xuất khẩu, nhập khẩu, cán cân thương mại; FDI đăng ký và giải ngân; diễn biến đơn hàng và nhu cầu toàn cầu.</td></tr>
-          <tr><td class="k">Thị trường vốn</td><td>VN-Index hoặc chỉ số phù hợp; giá trị giao dịch; dòng vốn ngoại; thông tin thị trường trái phiếu/cổ phiếu liên quan.</td></tr>
-        </tbody>
-      </table></div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <span class="eyebrow">B · D2</span>
-        <h2>Five Industry Overview Sheets</h2>
-        <p class="lede">Mỗi team nghiên cứu đủ cả 05 ngành dưới đây bằng cùng một template.</p>
-      </div>
-      <div class="two">
-        <div class="panel">
-          <h4>Template chung cho mỗi ngành</h4>
-          <ul class="clean">
-            <li><b>Industry definition &amp; segmentation:</b> định nghĩa, phân khúc chính, phạm vi nghiên cứu.</li>
-            <li><b>Value chain &amp; business model:</b> chuỗi giá trị, cách tạo doanh thu, cấu trúc chi phí, nguồn lợi nhuận.</li>
-            <li><b>Market structure:</b> quy mô và động lực thị trường, doanh nghiệp tiêu biểu, cạnh tranh.</li>
-            <li><b>Growth drivers &amp; risks:</b> chu kỳ, pháp lý, cạnh tranh, công nghệ, vốn, vận hành.</li>
-            <li><b>Key operating metrics:</b> chỉ số vận hành đặc thù và vì sao quan trọng.</li>
-            <li><b>Listed-company references &amp; valuation:</b> 3–5 doanh nghiệp niêm yết tham chiếu; chỉ số định giá thường dùng và hạn chế của chúng.</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <h4>Cách làm để không "mỗi người một phần"</h4>
-          <p>Người được giao đầu mối chỉ chịu trách nhiệm thúc đẩy và chuẩn hóa bản nháp. Mỗi tuần team tổ chức teach-back ngắn; thành viên khác đặt câu hỏi và phản biện. Team Lead/Vice Lead xoay vòng người trình bày để mọi thành viên thực sự nắm toàn bộ nội dung.</p>
-        </div>
-      </div>
-      <div class="tbl"><table>
-        <thead><tr><th>Ngành</th><th>Phạm vi cần nghiên cứu</th><th>Chỉ số / góc nhìn cần nhận diện</th></tr></thead>
-        <tbody>
-          <tr><td class="k">Ngân hàng</td><td>Huy động, cho vay, chất lượng tài sản, tăng trưởng tín dụng, nguồn vốn, thu nhập lãi và ngoài lãi.</td><td>Tăng trưởng tín dụng, CASA, NIM, NPL, dự phòng, tỷ lệ bao phủ nợ xấu, ROE; P/B, P/E.</td></tr>
-          <tr><td class="k">Công nghiệp</td><td>Sản xuất, khu công nghiệp, logistics và vận tải; nhu cầu từ FDI, xuất khẩu, hạ tầng và chu kỳ sản xuất.</td><td>PMI, IIP, FDI, đơn hàng, công suất, tỷ lệ lấp đầy, giá thuê, backlog, ROIC; EV/EBITDA, P/E.</td></tr>
-          <tr><td class="k">Bất động sản</td><td>Nhà ở, khu công nghiệp, thương mại; chuỗi phát triển dự án, pháp lý, nguồn cung, hấp thụ, giá bán, presales, bàn giao, vốn và nợ.</td><td>Nguồn cung, tỷ lệ hấp thụ, giá bán/giá thuê, presales, backlog, đòn bẩy; P/B, RNAV/NAV, P/E.</td></tr>
-          <tr><td class="k">Dịch vụ tài chính</td><td>Chứng khoán, quản lý tài sản, bảo hiểm; môi giới, cho vay ký quỹ, tự doanh, IB, AUM, thu nhập phí.</td><td>Thanh khoản thị trường, dư nợ margin, thị phần môi giới, AUM, thu nhập phí, ROE; P/B, P/E.</td></tr>
-          <tr><td class="k">Tiêu dùng &amp; Bán lẻ</td><td>FMCG, F&amp;B, bán lẻ hiện đại; sức mua, hệ thống cửa hàng, thị phần, cấu trúc biên lợi nhuận.</td><td>Tăng trưởng doanh thu, SSSG, giá trị đơn hàng, biên gộp, tồn kho, số cửa hàng; P/E, EV/EBITDA.</td></tr>
-        </tbody>
-      </table></div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <span class="eyebrow">C · D3</span>
-        <h2>Macro-to-Industry Matrix</h2>
-        <p class="lede">Với mỗi yếu tố vĩ mô, đánh giá tác động lên cả 05 ngành: kênh truyền dẫn, chiều tác động (tích cực/tiêu cực), độ trễ (ngắn/dài hạn), ngành nhạy cảm nhất và 1–3 KPI để kiểm chứng.</p>
-      </div>
-      <div class="tbl"><table>
-        <thead><tr><th>Yếu tố vĩ mô</th><th>Câu hỏi phân tích bắt buộc</th><th>KPI gợi ý</th></tr></thead>
-        <tbody>
-          <tr><td class="k">GDP / hoạt động kinh tế</td><td>Tăng trưởng tác động đến nhu cầu tín dụng, mua nhà, tiêu dùng, sản xuất và thị trường vốn qua kênh nào?</td><td>GDP, bán lẻ, IIP, PMI, tín dụng.</td></tr>
-          <tr><td class="k">Lạm phát</td><td>Chi phí đầu vào, sức mua, biên lợi nhuận và kỳ vọng lãi suất thay đổi thế nào?</td><td>CPI, CPI cơ bản, giá nguyên liệu, biên gộp.</td></tr>
-          <tr><td class="k">Lãi suất / tín dụng / thanh khoản</td><td>Chi phí vốn, khả năng tiếp cận vốn và nhu cầu vay thay đổi ra sao? Ngành nào nhạy cảm nhất?</td><td>Lãi suất huy động/cho vay, tín dụng, NIM, chi phí lãi vay.</td></tr>
-          <tr><td class="k">Tỷ giá</td><td>Tác động đến doanh nghiệp nhập khẩu, xuất khẩu, doanh nghiệp có nợ ngoại tệ và dòng vốn đầu tư?</td><td>USD/VND, doanh thu xuất khẩu, chi phí nhập khẩu, nợ ngoại tệ.</td></tr>
-          <tr><td class="k">Đầu tư công / hạ tầng</td><td>Ngành và mắt xích nào hưởng lợi trực tiếp/gián tiếp? Độ trễ bao lâu?</td><td>Giải ngân đầu tư công, backlog, giá thuê đất KCN, IIP.</td></tr>
-          <tr><td class="k">FDI / nhu cầu toàn cầu</td><td>Dòng vốn và đơn hàng quốc tế truyền dẫn sang sản xuất, logistics, KCN và tỷ giá ra sao?</td><td>FDI đăng ký/giải ngân, xuất khẩu, PMI, lấp đầy KCN.</td></tr>
-          <tr><td class="k">Thu nhập / sức mua hộ gia đình</td><td>Sức mua thay đổi ảnh hưởng đến tiêu dùng thiết yếu và không thiết yếu thế nào?</td><td>Bán lẻ, SSSG, sản lượng, giá bán, biên lợi nhuận.</td></tr>
-        </tbody>
-      </table></div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <span class="eyebrow">D · D4 &amp; D5</span>
-        <h2>Outlook 2027 và slide cuối kỳ</h2>
-      </div>
-      <div class="two">
-        <div class="panel">
-          <h4>Vietnam Industry Outlook 2027</h4>
-          <ul class="clean">
-            <li>03 kịch bản: cơ sở, tích cực, tiêu cực, kèm giả định vĩ mô của từng kịch bản.</li>
-            <li>Cơ hội và rủi ro chính của cả 05 ngành trong năm 2027.</li>
-            <li>Các biến số/KPI cần theo dõi để biết kịch bản nào đang xảy ra.</li>
-            <li>Không khuyến nghị mua/bán, không giá mục tiêu cổ phiếu.</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <h4>Cấu trúc slide khuyến nghị (15–20 slides)</h4>
-          <ul class="clean">
-            <li>1–2: Executive summary và bức tranh vĩ mô Việt Nam.</li>
-            <li>2–3: Động lực vĩ mô chính và kịch bản 2027.</li>
-            <li>5: Mỗi ngành 01 slide (cấu trúc, động lực, rủi ro, KPI nổi bật).</li>
-            <li>2–3: Ma trận tác động và so sánh mức độ nhạy cảm.</li>
-            <li>2–3: Outlook 2027, kết luận, chỉ báo cần theo dõi.</li>
-            <li>1: Sources &amp; methodology.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <span class="eyebrow">Chuẩn hóa</span>
-        <h2>Quy chuẩn phân tích và checklist trước khi nộp</h2>
-      </div>
-      <div class="two">
-        <div class="tbl"><table>
-          <thead><tr><th>Thành phần</th><th>Quy chuẩn tối thiểu</th></tr></thead>
-          <tbody>
-            <tr><td class="k">Số liệu</td><td>Có đơn vị, kỳ dữ liệu, nguồn, ngày truy cập; phân biệt số thực tế, ước tính, dự báo, sơ bộ.</td></tr>
-            <tr><td class="k">Biểu đồ</td><td>Tiêu đề nêu thông điệp, trục/đơn vị rõ, nguồn bên dưới; không dùng biểu đồ để trang trí.</td></tr>
-            <tr><td class="k">Nhận định</td><td>Mỗi kết luận quan trọng đi kèm dữ liệu hoặc cơ chế; nêu cả điều kiện có thể làm luận điểm sai.</td></tr>
-            <tr><td class="k">So sánh</td><td>Cùng kỳ, cùng đơn vị, cùng định nghĩa; nêu rõ khi dữ liệu không hoàn toàn tương đồng.</td></tr>
-          </tbody>
-        </table></div>
-        <div class="panel">
-          <h4>Checklist</h4>
-          <ul class="clean">
-            <li>Mọi số liệu quan trọng có nguồn và kỳ dữ liệu.</li>
-            <li>Bảng/biểu đồ có đơn vị, tiêu đề, chú thích.</li>
-            <li>Không mâu thuẫn giữa dashboard, industry sheets, ma trận và slide.</li>
-            <li>Đã phân biệt dữ liệu lịch sử, sơ bộ, ước tính, dự báo.</li>
-            <li>Mọi thành viên đọc và giải thích được cả 05 ngành.</li>
-          </ul>
-          <p class="muted" style="font-size:.85rem">Nguồn ưu tiên: cơ quan thống kê, Ngân hàng Nhà nước, cơ quan quản lý, hải quan, sở giao dịch chứng khoán, BCTC và công bố thông tin doanh nghiệp. Báo cáo của công ty chứng khoán chỉ dùng để bổ trợ và cần kiểm chứng.</p>
-        </div>
-      </div>
     </section>
 
     <section>
@@ -545,24 +518,17 @@ button:disabled{opacity:.5;cursor:not-allowed}
         <div class="tbl"><table>
           <thead><tr><th>Sản phẩm nhóm</th><th>Trọng số</th></tr></thead>
           <tbody>
-            <tr><td><b>Hiểu biết vĩ mô</b><br><span class="muted">Chọn đúng chỉ báo, đọc đúng xu hướng, hiểu giới hạn dữ liệu.</span></td><td class="k mono">20%</td></tr>
-            <tr><td><b>Kiến thức 05 ngành</b><br><span class="muted">Mô hình kinh doanh, cấu trúc ngành, KPI, động lực, rủi ro.</span></td><td class="k mono">25%</td></tr>
-            <tr><td><b>Liên kết vĩ mô–ngành</b><br><span class="muted">Kênh truyền dẫn, chiều tác động, độ trễ, khác biệt giữa các ngành.</span></td><td class="k mono">25%</td></tr>
-            <tr><td><b>Chất lượng dữ liệu &amp; nghiên cứu</b><br><span class="muted">Nguồn tin cậy, dữ liệu nhất quán, nhận định có căn cứ.</span></td><td class="k mono">15%</td></tr>
-            <tr><td><b>Trình bày &amp; Q&amp;A</b><br><span class="muted">Storyline rõ, đúng thời lượng, trả lời có lập luận.</span></td><td class="k mono">15%</td></tr>
+            <tr><td><b>Hiểu biết vĩ mô</b></td><td class="k mono">20%</td></tr>
+            <tr><td><b>Kiến thức 05 ngành</b></td><td class="k mono">25%</td></tr>
+            <tr><td><b>Liên kết vĩ mô–ngành</b></td><td class="k mono">25%</td></tr>
+            <tr><td><b>Chất lượng dữ liệu &amp; nghiên cứu</b></td><td class="k mono">15%</td></tr>
+            <tr><td><b>Trình bày &amp; Q&amp;A</b></td><td class="k mono">15%</td></tr>
           </tbody>
         </table></div>
         <div class="panel">
           <h4>Đánh giá cá nhân (26–27/12)</h4>
-          <p>Dự kiến 20–25 câu trắc nghiệm và 03 câu hỏi ngắn.</p>
-          <div class="tbl"><table>
-            <tbody>
-              <tr><td>Kinh tế vĩ mô Việt Nam</td><td class="k mono">30%</td></tr>
-              <tr><td>05 ngành trọng tâm</td><td class="k mono">40%</td></tr>
-              <tr><td>Liên kết vĩ mô–ngành &amp; tình huống</td><td class="k mono">30%</td></tr>
-            </tbody>
-          </table></div>
-          <p class="muted" style="font-size:.85rem">Trong Q&amp;A, thành viên có thể được hỏi ngẫu nhiên về bất kỳ ngành nào.</p>
+          <p>Dự kiến 20–25 câu trắc nghiệm và 03 câu hỏi ngắn về vĩ mô Việt Nam, 05 ngành và liên kết vĩ mô–ngành.</p>
+          <p class="muted" style="font-size:.85rem">Trong Q&amp;A, thành viên có thể được hỏi về bất kỳ ngành nào.</p>
         </div>
       </div>
     </section>
@@ -571,16 +537,8 @@ button:disabled{opacity:.5;cursor:not-allowed}
       <div class="section-head">
         <span class="eyebrow">Giai đoạn tiếp theo</span>
         <h2>Từ tháng 01/2027: phân ngành và nghiên cứu chuyên sâu</h2>
-        <p class="lede">Đầu tháng 01/2027, SFR Capital công bố phân bổ 01 ngành cho mỗi team. Các team chuyển sang industry deep-dive và phát triển góc nhìn đầu tư cho ngành được giao. Việc phân ngành dựa trên:</p>
+        <p class="lede">Đầu tháng 01/2027, SFR Capital công bố phân bổ 01 ngành cho mỗi team, dựa trên nguyện vọng thành viên, kết quả đánh giá cá nhân, chất lượng sản phẩm của team và sự cân bằng giữa các team.</p>
       </div>
-      <div class="tbl" style="max-width:560px"><table>
-        <tbody>
-          <tr><td>Mức độ quan tâm / nguyện vọng của thành viên</td><td class="k mono">30%</td></tr>
-          <tr><td>Kết quả đánh giá cá nhân</td><td class="k mono">25%</td></tr>
-          <tr><td>Hiệu quả nghiên cứu và chất lượng deliverables</td><td class="k mono">25%</td></tr>
-          <tr><td>Mức độ phù hợp và cân bằng trong team</td><td class="k mono">20%</td></tr>
-        </tbody>
-      </table></div>
     </section>
   </div>
 
@@ -631,7 +589,7 @@ button:disabled{opacity:.5;cursor:not-allowed}
     <section>
       <div class="section-head">
         <span class="eyebrow">Quy tắc đặt tên file</span>
-        <h2>Team_Mã_Phiên bản</h2>
+        <h2>Team_Mã</h2>
         <p class="lede">Đặt tên đúng quy tắc để BTC đối chiếu nhanh. Định dạng gốc (Excel, Word/PDF, PowerPoint/PDF) đều được nhận.</p>
       </div>
       <div class="tbl"><table>
@@ -647,8 +605,8 @@ button:disabled{opacity:.5;cursor:not-allowed}
       </div>
       <ul class="clean">
         <li>Chỉ tải vào thư mục của team mình; không mở, sửa hay xóa file trong thư mục của team khác.</li>
-        <li>Nộp bản mới thì tải file mới (ví dụ thêm <span class="mono">_v2</span>), không ghi đè hay xóa file cũ.</li>
-        <li>Sau hạn nộp, không chỉnh sửa file đã nộp. File tải lên sau 23:59 được ghi nhận là nộp trễ.</li>
+        <li>Muốn cập nhật file đã nộp thì tải file mới thêm <span class="mono">_v2</span>, không cần xóa file cũ.</li>
+        <li>File tải lên sau 23:59 ngày hạn được ghi nhận là nộp trễ.</li>
         <li>Nếu nộp bằng Google Sheets/Docs/Slides, tạo file ngay trong thư mục team và đặt tên theo quy tắc trên.</li>
       </ul>
     </section>
@@ -668,15 +626,11 @@ const TEAMS={
 };
 const due=d=>new Date(d+"T23:59:59+07:00");
 const SLOTS=[
- {id:"d1n",code:"D1",name:"Macro Dashboard",ver:"Nháp",due:due("2026-12-06")},
- {id:"d2n",code:"D2",name:"Industry Overview Sheets",ver:"Nháp",due:due("2026-12-13")},
- {id:"d3n",code:"D3",name:"Macro-to-Industry Matrix",ver:"Nháp",due:due("2026-12-19")},
- {id:"d4n",code:"D4",name:"Industry Outlook 2027",ver:"Nháp",due:due("2026-12-22")},
- {id:"d1f",code:"D1",name:"Macro Dashboard",ver:"Bản cuối",due:due("2026-12-23")},
- {id:"d2f",code:"D2",name:"Industry Overview Sheets",ver:"Bản cuối",due:due("2026-12-23")},
- {id:"d3f",code:"D3",name:"Macro-to-Industry Matrix",ver:"Bản cuối",due:due("2026-12-23")},
- {id:"d4f",code:"D4",name:"Industry Outlook 2027",ver:"Bản cuối",due:due("2026-12-23")},
- {id:"d5",code:"D5",name:"Final Presentation (slide)",ver:"Bản cuối",due:due("2026-12-25")}
+ {id:"d1",code:"D1",name:"Macro Dashboard",due:due("2026-12-06")},
+ {id:"d2",code:"D2",name:"Industry Overview Sheets",due:due("2026-12-13")},
+ {id:"d3",code:"D3",name:"Macro-to-Industry Matrix",due:due("2026-12-19")},
+ {id:"d4",code:"D4",name:"Industry Outlook 2027",due:due("2026-12-23")},
+ {id:"d5",code:"D5",name:"Final Presentation (slide)",due:due("2026-12-25")}
 ];
 const SLOT=Object.fromEntries(SLOTS.map(s=>[s.id,s]));
 const fmtDT=new Intl.DateTimeFormat("vi-VN",{timeZone:TZ,day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false});
@@ -698,8 +652,8 @@ addEventListener("hashchange",route); route();
 
 /* ---------- calendar ---------- */
 const PH=d=>d<=6?"p1":d<=13?"p2":d<=19?"p3":d<=25?"p4":d<=27?"p5":"p6";
-const EV={1:"Kick-off",6:"Nháp D1",13:"Nháp D2",19:"Nháp D3",22:"Nháp D4",23:"Bản cuối D1–D4",25:"Slide D5",26:"Thuyết trình",27:"Thuyết trình · Kiểm tra cá nhân",31:"Nguyện vọng ngành"};
-const DL=new Set([6,13,19,22,23,25,31]);
+const EV={1:"Kick-off",6:"Nộp D1",13:"Nộp D2",19:"Nộp D3",23:"Nộp D4",25:"Nộp D5 · Slide",26:"Thuyết trình",27:"Thuyết trình · Kiểm tra cá nhân",31:"Nguyện vọng ngành"};
+const DL=new Set([6,13,19,23,25,31]);
 (function(){
   const cal=$("cal"); let h=["T2","T3","T4","T5","T6","T7","CN"].map(d=>`<div class="dow">${d}</div>`).join("");
   h+=`<div class="day blank"></div>`; // 01/12/2026 là thứ Ba
@@ -715,7 +669,7 @@ const DL=new Set([6,13,19,22,23,25,31]);
 function tickNext(){
   const now=new Date();
   const events=[{t:new Date("2026-12-01T00:00:00+07:00"),what:"Kick-off Foundation"}]
-   .concat([...new Map(SLOTS.map(s=>[s.due.getTime(),s])).values()].map(s=>({t:s.due,what:s.due.getTime()===due("2026-12-23").getTime()?"Bản cuối D1–D4":(s.ver==="Nháp"?"Nháp ":"")+s.code+" · "+s.name})))
+   .concat([...new Map(SLOTS.map(s=>[s.due.getTime(),s])).values()].map(s=>({t:s.due,what:"Nộp "+s.code+" · "+s.name})))
    .concat([{t:new Date("2026-12-26T08:00:00+07:00"),what:"Final presentation"}]);
   const nx=events.find(e=>e.t>now);
   if(!nx){$("next-when").textContent="Đã kết thúc";$("next-what").textContent="Foundation tháng 12 đã hoàn tất";$("next-date").textContent="";return}
@@ -762,9 +716,9 @@ const FOLDERS={
  E:"https://drive.google.com/drive/folders/1h55eKXU33hsrDAic0vbBVntNQA4JQH_F"
 };
 $("folders").innerHTML=Object.keys(TEAMS).map(t=>`<a class="folder" href="${FOLDERS[t]}" target="_blank" rel="noopener"><span class="team-letter">Team ${t}</span><span class="muted">Mở thư mục nộp bài ↗</span></a>`).join("");
-const FN={d1n:"D1_Nhap",d2n:"D2_Nhap",d3n:"D3_Nhap",d4n:"D4_Nhap",d1f:"D1_BanCuoi",d2f:"D2_BanCuoi",d3f:"D3_BanCuoi",d4f:"D4_BanCuoi",d5:"D5_Slide"};
+const FN={d1:"D1_Dashboard",d2:"D2_Industry",d3:"D3_Matrix",d4:"D4_Outlook",d5:"D5_Slide"};
 const now=new Date();
-$("naming").innerHTML=SLOTS.map(s=>`<tr${now>s.due?' class="past"':""}><td class="k">${s.code} · ${esc(s.name)} <span class="muted">(${s.ver})</span></td><td class="mono">${dm(s.due)} · 23:59</td><td class="mono">TeamA_${FN[s.id]}</td></tr>`).join("");
+$("naming").innerHTML=SLOTS.map(s=>`<tr${now>s.due?' class="past"':""}><td class="k">${s.code} · ${esc(s.name)}</td><td class="mono">${dm(s.due)} · 23:59</td><td class="mono">TeamA_${FN[s.id]}</td></tr>`).join("");
 })();
 </script>
 
