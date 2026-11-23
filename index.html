@@ -70,7 +70,7 @@ a{color:var(--accent)}
   mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent),linear-gradient(to bottom,#000 70%,transparent);mask-composite:intersect}
 .banner img{width:100%;height:100%;object-fit:cover;display:block}
 .hero .eyebrow{color:var(--hero-accent)}
-.mast-row{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:end}
+.mast-row{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:28px;align-items:stretch}
 .hero h1{font-size:clamp(1.65rem,4.2vw,2.6rem);font-weight:800;letter-spacing:-.02em;margin-top:6px}
 .hero .sub{margin-top:8px;color:var(--hero-muted);max-width:68ch}
 .facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
@@ -80,10 +80,26 @@ a{color:var(--accent)}
 .phase-now{margin-top:18px;font-size:.9rem;color:var(--hero-fg);font-weight:600}
 .phase-now span{color:var(--hero-accent);font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin-right:8px}
 .hero .facts{margin-top:10px}
-.next{background:var(--hero-card);border:1px solid var(--hero-line);border-radius:var(--radius);padding:16px 18px;display:grid;gap:4px}
+.next{background:var(--hero-card);border:1px solid var(--hero-line);border-radius:var(--radius);padding:18px 20px;display:flex;flex-direction:column;gap:4px;margin-top:22px}
 .next .when{font-family:var(--font-mono);font-size:1.75rem;font-weight:600;color:var(--hero-accent);line-height:1.1}
 .next .what{font-weight:600}
 .next .muted{color:var(--hero-muted)}
+.keydates{list-style:none;margin:14px 0 0;padding:12px 0 0;border-top:1px solid var(--hero-line);display:grid;gap:2px;flex:1;align-content:start}
+.keydates li{display:grid;grid-template-columns:86px minmax(0,1fr);gap:10px;align-items:baseline;padding:5px 8px;border-radius:6px;font-size:.88rem;color:var(--hero-fg)}
+.keydates .kd{font-family:var(--font-mono);font-size:.8rem;color:var(--hero-muted)}
+.keydates li.past{opacity:.45}
+.keydates li.now{background:rgba(255,76,87,.14)}
+.keydates li.now .kd{color:var(--hero-accent)}
+.day.pre{background:transparent;border:1px dashed var(--line)}
+.day .m{font-size:.65rem;color:var(--muted);font-family:var(--font-mono)}
+.culture{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.culture .panel h4{display:flex;gap:8px;align-items:baseline}
+.culture .panel .tagline{font-family:var(--font-mono);font-size:.75rem;color:var(--accent);font-weight:600}
+.cycle{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;counter-reset:cy}
+.cycle li{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:12px;display:grid;gap:4px;font-size:.86rem;counter-increment:cy;align-content:start}
+.cycle li b{font-size:.92rem}
+.cycle li .dt{font-family:var(--font-mono);font-size:.75rem;color:var(--accent)}
+.cycle li.rest{background:var(--sunken);border-style:dashed}
 @media (max-width:720px){.mast-row{grid-template-columns:1fr;gap:18px}}
 
 /* tabs */
@@ -119,7 +135,7 @@ section{display:grid;gap:14px;min-width:0}
 @media (max-width:560px){.day{min-height:54px;padding:4px}.day .ev{display:none}.day .n{font-size:.78rem}}
 
 .milestones{display:none;list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
-.milestones li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:10px;padding:9px 12px;border-bottom:1px solid var(--line);font-size:.88rem}
+.milestones li{display:grid;grid-template-columns:84px minmax(0,1fr);gap:10px;padding:9px 12px;border-bottom:1px solid var(--line);font-size:.88rem}
 .milestones li:last-child{border-bottom:0}
 .milestones .d{font-family:var(--font-mono);font-weight:600}
 .milestones li.dl .d{color:var(--accent)}
@@ -231,7 +247,7 @@ button:disabled{opacity:.5;cursor:not-allowed}
         <p class="sub">SFR Capital được sinh ra nhằm giúp các thành viên SFR chuyển hóa kiến thức từ training vào thực chiến, mang lại góc nhìn và trải nghiệm rõ ràng nhất để các bạn tự tin đi tiếp trên hành trình Đầu tư Tài chính. Không còn dừng lại ở lý thuyết, đây là nơi đòi hỏi một bản lĩnh vững chắc khi các thành viên cùng quan sát thị trường, phân tích, tranh luận và trực tiếp để ra quyết định đầu tư dựa trên nguồn vốn thật.</p>
         <p class="phase-now"><span>Tháng 12/2026 · Foundation</span> Vietnam Macroeconomy &amp; Industry Landscape</p>
         <div class="facts">
-          <span class="fact"><b>01/12 – 27/12</b>/2026</span>
+          <span class="fact"><b>25/11 – 27/12</b>/2026</span>
           <span class="fact"><b>05</b> team · <b>29</b> thành viên</span>
           <span class="fact">Nộp report <b>19/12</b></span>
           <span class="fact">Thuyết trình <b>26–27/12</b></span>
@@ -242,6 +258,7 @@ button:disabled{opacity:.5;cursor:not-allowed}
         <span class="when" id="next-when">—</span>
         <span class="what" id="next-what"></span>
         <span class="muted mono" id="next-date" style="font-size:.82rem"></span>
+        <ol class="keydates" id="keydates"></ol>
       </div>
     </div>
   </div>
@@ -260,21 +277,21 @@ button:disabled{opacity:.5;cursor:not-allowed}
   <!-- ============ LỘ TRÌNH ============ -->
   <div class="view" id="v-lo-trinh">
     <div class="notice">
-      <b>Tháng 12 chỉ phân tích tổng quan</b>
+      <b>Foundation chỉ phân tích tổng quan</b>
       <p>Cả 05 team cùng nghiên cứu một phạm vi chung: vĩ mô Việt Nam và toàn bộ 05 ngành. Đây chưa phải giai đoạn viết báo cáo khuyến nghị mua/bán, đặt giá mục tiêu hay định giá chuyên sâu từng doanh nghiệp.</p>
     </div>
 
     <section>
       <div class="section-head">
-        <span class="eyebrow">Lịch tháng 12/2026</span>
-        <h2>Nộp report 19/12, thuyết trình 26–27/12</h2>
+        <span class="eyebrow">Lịch Foundation · 25/11 – 31/12/2026</span>
+        <h2>Kick-off 25/11, check tiến độ 10/12, nộp report 19/12, thuyết trình 26–27/12</h2>
       </div>
       <div class="cal" id="cal"></div>
       <ol class="milestones" id="milestones"></ol>
       <div class="legend">
-        <span><i style="background:var(--w1)"></i>Tuần 1 · Phần 1</span>
-        <span><i style="background:var(--w2)"></i>Tuần 2 · Phần 2</span>
-        <span><i style="background:var(--w3)"></i>Tuần 3 · Phần 3–4</span>
+        <span><i style="background:var(--w1)"></i>Phần 1 · Vĩ mô</span>
+        <span><i style="background:var(--w2)"></i>Phần 2 · 05 ngành</span>
+        <span><i style="background:var(--w3)"></i>Phần 3–4</span>
         <span><i style="background:var(--w4)"></i>Chuẩn bị thuyết trình</span>
         <span><i style="background:var(--w5)"></i>Thuyết trình</span>
         <span><i style="background:var(--w6)"></i>Tổng kết</span>
@@ -285,25 +302,26 @@ button:disabled{opacity:.5;cursor:not-allowed}
     <section>
       <div class="section-head">
         <span class="eyebrow">Lộ trình triển khai</span>
-        <h2>Gợi ý tiến độ theo tuần</h2>
-        <p class="lede">Chỉ có một lần nộp duy nhất (19/12). Tiến độ từng tuần dưới đây là gợi ý để team chia việc.</p>
+        <h2>Gợi ý tiến độ</h2>
+        <p class="lede">Hai mốc nộp: check tiến độ ngày 10/12 và report ngày 19/12. Cách chia thời gian dưới đây là gợi ý để team sắp xếp công việc.</p>
       </div>
       <div class="phases">
         <article class="phase">
-          <div class="tag"><span class="swatch" style="background:var(--w1)"></span><span class="lbl">Tuần 1</span><span class="dates">01 – 06/12</span></div>
-          <div class="body"><h3>Phần 1 · Vĩ mô Việt Nam</h3><p class="muted">Kick-off ngày 01/12. Thu thập dữ liệu và xây dựng bức tranh vĩ mô.</p></div>
+          <div class="tag"><span class="swatch" style="background:var(--w1)"></span><span class="lbl">Giai đoạn 1</span><span class="dates">25/11 – 03/12</span></div>
+          <div class="body"><h3>Kick-off &amp; Phần 1 · Vĩ mô Việt Nam</h3><p class="muted">Kick-off ngày 25/11: giới thiệu chương trình, các team gặp nhau và chia việc. Sau đó thu thập dữ liệu và xây dựng bức tranh vĩ mô.</p></div>
         </article>
         <article class="phase">
-          <div class="tag"><span class="swatch" style="background:var(--w2)"></span><span class="lbl">Tuần 2</span><span class="dates">07 – 13/12</span></div>
-          <div class="body"><h3>Phần 2 · Tổng quan 05 ngành</h3><p class="muted">Viết 05 ngành theo cùng một cấu trúc.</p></div>
+          <div class="tag"><span class="swatch" style="background:var(--w2)"></span><span class="lbl">Giai đoạn 2</span><span class="dates">04 – 12/12</span></div>
+          <div class="body"><h3>Phần 2 · Tổng quan 05 ngành</h3><p class="muted">Viết 05 ngành theo cùng một cấu trúc.</p>
+            <div class="checkpoint"><b>Check tiến độ · 10/12, 23:59.</b> Gửi file report đang làm (Phần 1 và phần đã có của Phần 2) để Ban Đầu tư Tài chính nắm tiến độ và góp ý sớm.</div></div>
         </article>
         <article class="phase">
-          <div class="tag"><span class="swatch" style="background:var(--w3)"></span><span class="lbl">Tuần 3</span><span class="dates">14 – 19/12</span></div>
+          <div class="tag"><span class="swatch" style="background:var(--w3)"></span><span class="lbl">Giai đoạn 3</span><span class="dates">13 – 19/12</span></div>
           <div class="body"><h3>Phần 3 · Phân tích Vĩ mô → Ngành &amp; Phần 4 · Outlook 2027</h3><p class="muted">Phân tích driver vĩ mô của từng ngành, viết triển vọng 2027 và hoàn thiện report.</p>
             <div class="checkpoint"><b>Nộp report · 19/12, 23:59.</b> Một file duy nhất (Word/PDF hoặc Excel) gồm đủ 04 phần.</div></div>
         </article>
         <article class="phase">
-          <div class="tag"><span class="swatch" style="background:var(--w4)"></span><span class="lbl">Tuần 4</span><span class="dates">20 – 25/12</span></div>
+          <div class="tag"><span class="swatch" style="background:var(--w4)"></span><span class="lbl">Giai đoạn 4</span><span class="dates">20 – 25/12</span></div>
           <div class="body"><h3>Chuẩn bị thuyết trình</h3><p class="muted">Làm slide từ report, phân công người trình bày và chuẩn bị Q&amp;A. Không cần nộp slide trước.</p></div>
         </article>
         <article class="phase key">
@@ -324,17 +342,54 @@ button:disabled{opacity:.5;cursor:not-allowed}
 
     <section>
       <div class="section-head">
-        <span class="eyebrow">Nhịp làm việc mỗi tuần</span>
-        <h2>Ba lần gặp ngắn mỗi tuần</h2>
+        <span class="eyebrow">Văn hóa làm việc</span>
+        <h2>Cách SFR Capital vận hành</h2>
+        <p class="lede">Áp dụng cho Foundation và các kỳ tiếp theo trong nhiệm kỳ.</p>
       </div>
-      <div class="tbl"><table>
-        <thead><tr><th>Thời điểm</th><th>Hoạt động</th><th>Mục đích</th></tr></thead>
-        <tbody>
-          <tr><td class="k">Đầu tuần</td><td>Briefing 30–45 phút: thống nhất mục tiêu, đầu việc, người phụ trách và tiêu chuẩn hoàn thành.</td><td>Cả team hiểu rõ tuần này cần hoàn thành gì.</td></tr>
-          <tr><td class="k">Giữa tuần</td><td>Progress check 15–20 phút: rà soát task tracker, khó khăn dữ liệu, điểm cần hỗ trợ.</td><td>Phát hiện sớm phần chậm tiến độ hoặc thiếu dữ liệu.</td></tr>
-          <tr><td class="k">Cuối tuần</td><td>Peer review / teach-back 30–45 phút: thành viên trình bày, phản biện và cập nhật deliverable.</td><td>Kiểm tra mức độ hiểu chung và chất lượng đầu ra.</td></tr>
-        </tbody>
-      </table></div>
+      <div class="culture">
+        <div class="panel"><span class="tagline">MỖI 2 TUẦN</span><h4>Cập nhật tiến độ lên group chung</h4><p>Mỗi team đăng một cập nhật ngắn lên group chung SFR Capital: đã làm được gì, sắp làm gì, đang vướng ở đâu. Các team khác đọc được để học hỏi và hỗ trợ nhau.</p></div>
+        <div class="panel"><span class="tagline">CUỐI MỖI KỲ</span><h4>Nộp report và thuyết trình</h4><p>Kết thúc mỗi kỳ, mỗi team nộp report phân tích ngành đang được giao và trình bày trước cả nhóm. Riêng Foundation, report là phần tổng quan vĩ mô và 05 ngành.</p></div>
+        <div class="panel"><span class="tagline">SAU MỖI KỲ</span><h4>Đổi team, đổi ngành</h4><p>Thành viên được xếp lại vào team mới và các team chuyển sang ngành mới, để mỗi người trải qua nhiều ngành và làm việc với nhiều bạn khác nhau trong nhiệm kỳ.</p></div>
+        <div class="panel"><span class="tagline">MỌI LÚC</span><h4>Học từ nhau</h4><p>Teach-back trong team và phản biện chéo giữa các team, để ai cũng hiểu được những ngành ngoài phần mình trực tiếp làm.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Sau Foundation</span>
+        <h2>Cơ cấu luân chuyển team và ngành</h2>
+        <p class="lede">Từ tháng 01/2027, SFR Capital chạy theo từng kỳ, mỗi kỳ khoảng 1,5–2 tháng. Trong mỗi kỳ, 05 team phụ trách 05 ngành (mỗi team 01 ngành): Ngân hàng, Công nghiệp, Bất động sản, Dịch vụ tài chính, Tiêu dùng &amp; Bán lẻ. Hết kỳ, team và ngành được xoay vòng.</p>
+      </div>
+      <h4>Một kỳ diễn ra thế nào (ví dụ Kỳ 1: 04/01 – 21/02/2027)</h4>
+      <ol class="cycle">
+        <li><span class="dt">04/01</span><b>Kickoff</b><span class="muted">Công bố ngành của từng team, xác nhận vai trò.</span></li>
+        <li><span class="dt">05 – 31/01</span><b>Research 1</b><span class="muted">Tổng quan ngành, động lực và rủi ro, lập watchlist 5–8 doanh nghiệp, chọn 2 doanh nghiệp để đi sâu.</span></li>
+        <li><span class="dt">01 – 03/02</span><b>Checkpoint</b><span class="muted">Chốt khung phân tích và kiểm tra tiến độ trước Tết.</span></li>
+        <li class="rest"><span class="dt">04 – 10/02</span><b>Nghỉ Tết</b><span class="muted">Không họp, không deadline.</span></li>
+        <li><span class="dt">11 – 17/02</span><b>Research 2</b><span class="muted">Phân tích doanh nghiệp, báo cáo tài chính, dự phóng và định giá sơ bộ.</span></li>
+        <li><span class="dt">18 – 19/02</span><b>Report &amp; thuyết trình</b><span class="muted">Trình bày ngành và 1–2 doanh nghiệp, nhận phản biện chéo.</span></li>
+        <li><span class="dt">20 – 21/02</span><b>Tổng kết</b><span class="muted">Rút kinh nghiệm, chuẩn bị đổi team và ngành.</span></li>
+      </ol>
+      <div class="two">
+        <div class="panel">
+          <h4>Nguyên tắc xếp team mỗi kỳ</h4>
+          <ul class="clean">
+            <li>05 team, mỗi team 5–6 thành viên; mỗi thành viên thuộc một team trong một kỳ.</li>
+            <li>Mỗi team có 01 Team Lead, 01 Vice Lead, các bạn còn lại là Analyst.</li>
+            <li>Cân bằng giữa K50 và K51, và giữa các bạn có mong muốn làm lead.</li>
+            <li>Sau mỗi kỳ, team và ngành được xếp lại để mỗi người trải nghiệm nhiều ngành.</li>
+          </ul>
+        </div>
+        <div class="tbl"><table>
+          <thead><tr><th>Căn cứ phân ngành</th><th>Tỷ trọng</th></tr></thead>
+          <tbody>
+            <tr><td>Nguyện vọng của thành viên</td><td class="k mono">30%</td></tr>
+            <tr><td>Kết quả đánh giá cá nhân</td><td class="k mono">25%</td></tr>
+            <tr><td>Chất lượng report của team</td><td class="k mono">25%</td></tr>
+            <tr><td>Sự phù hợp và cân bằng trong team</td><td class="k mono">20%</td></tr>
+          </tbody>
+        </table></div>
+      </div>
     </section>
   </div>
 
@@ -342,7 +397,7 @@ button:disabled{opacity:.5;cursor:not-allowed}
   <div class="view" id="v-de-bai" hidden>
     <div class="notice">
       <b>Một report, một buổi thuyết trình</b>
-      <p>Mỗi team nộp <b>01 report</b> (Word/PDF hoặc Excel) trước <b>23:59 ngày 19/12</b>, sau đó thuyết trình vào <b>26–27/12</b>. Report đi theo cấu trúc 04 phần dưới đây. Phần mô tả, chỉ báo và độ dài là gợi ý để các bạn định hướng; team tự quyết cách triển khai, miễn bám đúng cấu trúc.</p>
+      <p>Mỗi team nộp <b>01 report</b> (Word/PDF hoặc Excel) trước <b>23:59 ngày 19/12</b>, sau đó thuyết trình vào <b>26–27/12</b>. Giữa chừng, ngày <b>10/12</b> các team gửi file đang làm để check tiến độ. Report đi theo cấu trúc 04 phần dưới đây. Phần mô tả, chỉ báo và độ dài là gợi ý để các bạn định hướng; team tự quyết cách triển khai, miễn bám đúng cấu trúc.</p>
     </div>
 
     <section>
@@ -481,7 +536,7 @@ button:disabled{opacity:.5;cursor:not-allowed}
       <div class="section-head">
         <span class="eyebrow">Phân team Kỳ Foundation</span>
         <h2>05 team, 29 thành viên</h2>
-        <p class="lede">Đây là danh sách phân team cho Kỳ Foundation sắp tới (01–27/12/2026). Trong kỳ này, team chưa gắn với ngành nào. Mỗi team có 01 Team Lead, 01 Vice Lead, các thành viên còn lại là Analyst.</p>
+        <p class="lede">Đây là danh sách phân team cho Kỳ Foundation sắp tới (25/11–27/12/2026). Trong kỳ này, team chưa gắn với ngành nào. Từ kỳ sau, team sẽ được xếp lại theo cơ cấu luân chuyển ở tab Lộ trình. Mỗi team có 01 Team Lead, 01 Vice Lead, các thành viên còn lại là Analyst.</p>
       </div>
       <div class="finder">
         <label for="find">Tìm tên của bạn
@@ -514,7 +569,7 @@ button:disabled{opacity:.5;cursor:not-allowed}
       <div class="section-head">
         <span class="eyebrow">Nộp bài</span>
         <h2>Tải report lên thư mục Drive của team</h2>
-        <p class="lede">Mỗi team có một thư mục Google Drive riêng. Vice Lead (hoặc người được team phân công) tải report vào đúng thư mục của team mình trước <b>23:59 ngày 19/12</b>. Ban Đầu tư Tài chính tính giờ nộp theo thời điểm file được tải lên Drive.</p>
+        <p class="lede">Mỗi team có một thư mục Google Drive riêng. Vice Lead (hoặc người được team phân công) tải file vào đúng thư mục của team mình: bản check tiến độ trước <b>23:59 ngày 10/12</b> và report trước <b>23:59 ngày 19/12</b>. Ban Đầu tư Tài chính tính giờ nộp theo thời điểm file được tải lên Drive.</p>
       </div>
       <div class="folders" id="folders"></div>
     </section>
@@ -522,7 +577,7 @@ button:disabled{opacity:.5;cursor:not-allowed}
     <section>
       <div class="section-head">
         <span class="eyebrow">Quy tắc đặt tên file</span>
-        <h2>TeamA_Report</h2>
+        <h2>TeamA_Checkin · TeamA_Report</h2>
         <p class="lede">Thay A bằng chữ cái của team. Nhận file Word, PDF hoặc Excel.</p>
       </div>
       <div class="tbl"><table>
@@ -559,7 +614,8 @@ const TEAMS={
 };
 const due=d=>new Date(d+"T23:59:59+07:00");
 const SLOTS=[
- {id:"rp",code:"Report",name:"Report 04 phần (Word/PDF hoặc Excel)",due:due("2026-12-19")}
+ {id:"ck",name:"Check tiến độ (file đang làm)",due:due("2026-12-10")},
+ {id:"rp",name:"Report 04 phần (Word/PDF hoặc Excel)",due:due("2026-12-19")}
 ];
 const SLOT=Object.fromEntries(SLOTS.map(s=>[s.id,s]));
 const fmtDT=new Intl.DateTimeFormat("vi-VN",{timeZone:TZ,day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false});
@@ -580,32 +636,36 @@ function route(){
 addEventListener("hashchange",route); route();
 
 /* ---------- calendar ---------- */
-const PH=d=>d<=6?"p1":d<=13?"p2":d<=19?"p3":d<=25?"p4":d<=27?"p5":"p6";
-const EV={1:"Kick-off",19:"Nộp report",26:"Thuyết trình",27:"Thuyết trình · Kiểm tra cá nhân",31:"Nguyện vọng ngành"};
-const DL=new Set([19,26,27,31]);
+const KEY=d=>new Intl.DateTimeFormat("en-CA",{timeZone:TZ}).format(d);
+const TODAY=KEY(new Date());
+const EV={"2026-11-25":"Kick-off","2026-12-10":"Check tiến độ","2026-12-19":"Nộp report","2026-12-26":"Thuyết trình","2026-12-27":"Thuyết trình · Kiểm tra cá nhân","2026-12-31":"Nguyện vọng ngành"};
+const PH=k=>k<"2026-11-25"?"pre":k<="2026-12-03"?"p1":k<="2026-12-12"?"p2":k<="2026-12-19"?"p3":k<="2026-12-25"?"p4":k<="2026-12-27"?"p5":"p6";
 (function(){
-  const cal=$("cal"); let h=["T2","T3","T4","T5","T6","T7","CN"].map(d=>`<div class="dow">${d}</div>`).join("");
-  h+=`<div class="day blank"></div>`; // 01/12/2026 là thứ Ba
-  const todayKey=new Intl.DateTimeFormat("en-CA",{timeZone:TZ}).format(new Date());
-  for(let d=1;d<=31;d++){
-    const key="2026-12-"+String(d).padStart(2,"0");
-    h+=`<div class="day ${PH(d)}${key===todayKey?" today":""}"><span class="n">${String(d).padStart(2,"0")}</span>${EV[d]?`<span class="ev">${DL.has(d)?'<span class="dot"></span>':""}${EV[d]}</span>`:""}</div>`;
+  let h=["T2","T3","T4","T5","T6","T7","CN"].map(d=>`<div class="dow">${d}</div>`).join("");
+  for(let t=Date.UTC(2026,10,23);t<=Date.UTC(2026,11,31);t+=864e5){
+    const d=new Date(t), k=d.toISOString().slice(0,10), dd=k.slice(8), mm=k.slice(5,7);
+    const lab=(dd==="23"&&mm==="11")||(dd==="01"&&mm==="12")?`${dd}<span class="m">/${mm}</span>`:dd;
+    h+=`<div class="day ${PH(k)}${k===TODAY?" today":""}"><span class="n">${lab}</span>${EV[k]?`<span class="ev"><span class="dot"></span>${EV[k]}</span>`:""}</div>`;
   }
-  cal.innerHTML=h;
+  $("cal").innerHTML=h;
 })();
 
-/* ---------- next deadline ---------- */
+/* ---------- next deadline + key dates ---------- */
+const KEYDATES=[
+ {k:"2026-11-25",lab:"25/11",what:"Kick-off",t:new Date("2026-11-25T00:00:00+07:00")},
+ {k:"2026-12-10",lab:"10/12",what:"Check tiến độ",t:due("2026-12-10"),dl:1},
+ {k:"2026-12-19",lab:"19/12",what:"Nộp report",t:due("2026-12-19"),dl:1},
+ {k:"2026-12-26",lab:"26 – 27/12",what:"Thuyết trình",t:new Date("2026-12-26T00:00:00+07:00")},
+ {k:"2026-12-31",lab:"31/12",what:"Nguyện vọng ngành",t:due("2026-12-31")}
+];
 function tickNext(){
-  const now=new Date();
-  const events=[{t:new Date("2026-12-01T00:00:00+07:00"),what:"Kick-off Foundation"}]
-   .concat([...new Map(SLOTS.map(s=>[s.due.getTime(),s])).values()].map(s=>({t:s.due,what:"Nộp report"})))
-   .concat([{t:new Date("2026-12-26T08:00:00+07:00"),what:"Final presentation"}]);
-  const nx=events.find(e=>e.t>now);
-  if(!nx){$("next-when").textContent="Đã kết thúc";$("next-what").textContent="Foundation tháng 12 đã hoàn tất";$("next-date").textContent="";return}
+  const now=new Date(); const nx=KEYDATES.find(e=>e.t>now);
+  $("keydates").innerHTML=KEYDATES.map(e=>`<li class="${e===nx?"now":e.t<=now?"past":""}"><span class="kd">${e.lab}</span><span>${e.what}${e.dl?" · 23:59":""}</span></li>`).join("");
+  if(!nx){$("next-when").textContent="Đã kết thúc";$("next-what").textContent="Foundation đã hoàn tất";$("next-date").textContent="";return}
   const ms=nx.t-now, d=Math.floor(ms/864e5), hh=Math.floor(ms%864e5/36e5);
   $("next-when").textContent=d>0?`${d} ngày ${hh} giờ`:`${hh} giờ ${Math.floor(ms%36e5/6e4)} phút`;
   $("next-what").textContent=nx.what;
-  $("next-date").textContent=fmtD.format(nx.t)+(nx.what.startsWith("Kick")||nx.what.startsWith("Final")?"":" · 23:59");
+  $("next-date").textContent=fmtD.format(nx.t)+(nx.dl?" · 23:59":"");
 }
 tickNext(); setInterval(tickNext,60000);
 
@@ -615,11 +675,7 @@ $("teams").innerHTML=Object.entries(TEAMS).map(([t,ms])=>`
   <ol>${ms.map(([n,r,k])=>`<li><span>${esc(n)}<br><span class="role${r!=="Analyst"?" lead":""}">${r}</span></span><span class="k5">${k}</span></li>`).join("")}</ol></article>`).join("");
 
 /* ---------- milestones (phone) ---------- */
-(function(){
-  const today=new Intl.DateTimeFormat("en-CA",{timeZone:TZ}).format(new Date());
-  $("milestones").innerHTML=Object.entries(EV).map(([d,ev])=>{const key="2026-12-"+String(d).padStart(2,"0");
-    return `<li class="${DL.has(+d)?"dl":""}${key<today?" done":""}"><span class="d">${String(d).padStart(2,"0")}/12</span><span>${ev}${+d===19?" · 23:59":""}</span></li>`}).join("");
-})();
+$("milestones").innerHTML=KEYDATES.map(e=>`<li class="${e.dl?"dl":""}${e.k<TODAY?" done":""}"><span class="d">${e.lab.replace(" ","")}</span><span>${e.what}${e.dl?" · 23:59":""}</span></li>`).join("");
 
 /* ---------- team finder ---------- */
 const norm=x=>x.normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").replace(/Đ/g,"D").toLowerCase().trim();
@@ -645,7 +701,7 @@ const FOLDERS={
  E:"https://drive.google.com/drive/folders/1h55eKXU33hsrDAic0vbBVntNQA4JQH_F"
 };
 $("folders").innerHTML=Object.keys(TEAMS).map(t=>`<a class="folder" href="${FOLDERS[t]}" target="_blank" rel="noopener"><span class="team-letter">Team ${t}</span><span class="muted">Mở thư mục nộp bài ↗</span></a>`).join("");
-const FN={rp:"Report"};
+const FN={ck:"Checkin",rp:"Report"};
 const now=new Date();
 $("naming").innerHTML=SLOTS.map(s=>`<tr${now>s.due?' class="past"':""}><td class="k">${esc(s.name)}</td><td class="mono">${dm(s.due)} · 23:59</td><td class="mono">TeamA_${FN[s.id]}</td></tr>`).join("");
 })();
