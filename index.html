@@ -207,6 +207,18 @@ td .due{font-family:var(--font-mono);white-space:nowrap}
 .folders{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
 .folder{display:grid;gap:6px;padding:16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);text-decoration:none;color:var(--fg)}
 .folder:hover{border-color:var(--accent)}
+.ws{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:12px;align-items:stretch}
+@media (max-width:640px){.ws{grid-template-columns:1fr}}
+.ws-tree{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:12px 14px;display:grid;gap:6px;font-size:.9rem;min-width:0}
+.ws-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.ws-row.root{font-weight:700}
+.ws-row.l1{padding-left:20px}
+.ws-row.l2{padding-left:44px;color:var(--muted);font-family:var(--font-mono);font-size:.8rem}
+.ws-row.later{color:var(--muted)}
+.ws-ico{color:var(--accent);font-size:.8rem}
+.ws-tag{font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.ws-row.later .ws-tag{background:var(--sunken);color:var(--muted)}
+.ws-open{align-content:center}
 tr.past td{color:var(--muted)}
 /* submit */
 form{display:grid;gap:12px}
@@ -557,9 +569,26 @@ button:disabled{opacity:.5;cursor:not-allowed}
   <div class="view" id="v-nop-bai" hidden>
     <section>
       <div class="section-head">
-        <span class="eyebrow">Nộp bài</span>
-        <h2>Tải report lên thư mục Drive của team</h2>
-        <p class="lede">Mỗi team có một thư mục Google Drive riêng. Vice Lead (hoặc người được team phân công) tải file vào đúng thư mục của team mình: bài giữa kỳ trước <b>23:59 ngày 13/12</b> và report trước <b>23:59 ngày 19/12</b>. Giờ nộp tính theo thời điểm file được tải lên Drive.</p>
+        <span class="eyebrow">Workspace SFR Capital</span>
+        <h2>Một Google Drive chung cho cả nhiệm kỳ</h2>
+        <p class="lede">SFR Capital dùng một workspace Google Drive chung cho tất cả các kỳ. Mỗi kỳ là một thư mục con bên trong, và mỗi team có thư mục riêng trong kỳ đó. Kỳ Foundation là thư mục đầu tiên.</p>
+      </div>
+      <div class="ws">
+        <div class="ws-tree" aria-label="Cấu trúc workspace">
+          <div class="ws-row root"><span class="ws-ico">▣</span>SFR Capital – Workspace NK28</div>
+          <div class="ws-row l1 now"><span class="ws-ico">▸</span>01. Foundation (30/11 – 26/12/2026)<span class="ws-tag">Kỳ hiện tại</span></div>
+          <div class="ws-row l2">Team A · Team B · Team C · Team D · Team E</div>
+          <div class="ws-row l1 later"><span class="ws-ico">▸</span>Các kỳ tiếp theo<span class="ws-tag">Mở khi kỳ bắt đầu</span></div>
+        </div>
+        <a class="folder ws-open" href="https://drive.google.com/drive/folders/1uSFRlP2ZaWHsZBG02y_1uHhXGjCQALRv" target="_blank" rel="noopener"><span class="team-letter" style="font-size:1.1rem">Mở workspace</span><span class="muted">Xem toàn bộ thư mục SFR Capital ↗</span></a>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Nộp bài · Foundation</span>
+        <h2>Tải file vào thư mục của team</h2>
+        <p class="lede">Vice Lead (hoặc người được team phân công) tải file vào đúng thư mục của team mình trong kỳ Foundation: bài giữa kỳ trước <b>23:59 ngày 13/12</b> và report trước <b>23:59 ngày 19/12</b>. Giờ nộp tính theo thời điểm file được tải lên Drive.</p>
       </div>
       <div class="folders" id="folders"></div>
     </section>
@@ -584,7 +613,7 @@ button:disabled{opacity:.5;cursor:not-allowed}
       <ul class="clean">
         <li>Chỉ tải vào thư mục của team mình; không mở, sửa hay xóa file trong thư mục của team khác.</li>
         <li>Nếu report có cả Word và Excel đi kèm, đặt tên <span class="mono">TeamA_Report</span> và <span class="mono">TeamA_Data</span>.</li>
-        <li>File tải lên sau 23:59 ngày 19/12 được ghi nhận là nộp trễ.</li>
+        <li>File tải lên sau 23:59 của ngày hạn (13/12 hoặc 19/12) được ghi nhận là nộp trễ.</li>
         <li>Nếu làm bằng Google Docs/Sheets, tạo file ngay trong thư mục team và đặt tên theo quy tắc trên.</li>
       </ul>
     </section>
